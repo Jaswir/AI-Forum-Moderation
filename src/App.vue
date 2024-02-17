@@ -1,35 +1,46 @@
 
 <template>
   <div class="q-pa">
-    <q-toolbar class="bg-primary text-white shadow-2">
-      <q-btn flat round dense icon="menu" class="q-mr-sm xs">
-        <q-menu>
-          <q-list style="min-width: 100px">
-            <q-item clickable v-close-popup>
-              <q-item-section>Pricing</q-item-section>
-            </q-item>
-            <q-item clickable v-close-popup>
-              <q-item-section>About</q-item-section>
-            </q-item>
-            <q-item clickable v-close-popup>
-              <q-item-section>Contact</q-item-section>
-            </q-item>
-          </q-list>
-        </q-menu>
+    <q-layout>
+      <q-toolbar class="bg-primary text-white shadow-2">
+        <q-btn flat round dense icon="menu" class="q-mr-sm xs">
+          <q-menu>
+            <q-list style="min-width: 100px">
+              <q-item clickable v-close-popup>
+                <q-item-section>Pricing</q-item-section>
+              </q-item>
+              <q-item clickable v-close-popup>
+                <q-item-section>About</q-item-section>
+              </q-item>
+              <q-item clickable v-close-popup>
+                <q-item-section>Contact</q-item-section>
+              </q-item>
+            </q-list>
+          </q-menu>
 
-      </q-btn>
-      <q-btn flat label="Nutritious" />
-      <q-space />
+        </q-btn>
+        <q-btn class="text-h5" flat label="Nutritious" no-caps to="/" />
+        <q-space />
 
-      <!--
+        <!--
         notice shrink property since we are placing it
         as child of QToolbar
       -->
-      <q-btn-toggle class="gt-xs responsive-toolbar" v-model="model" flat stretch toggle-color="yellow"
-        :options="options" />
+        <q-btn-toggle class="gt-xs responsive-toolbar" v-model="model" flat stretch toggle-color="yellow"
+          :options="options" no-caps to="/pricing" />
 
-      <q-space />
-    </q-toolbar>
+        <q-space />
+      </q-toolbar>
+
+
+      <q-page-container>
+        <q-page class="q-pa-md">
+          <RouterView />
+        </q-page>
+      </q-page-container>
+
+
+    </q-layout>
   </div>
 </template>
 
@@ -61,9 +72,9 @@ export default {
       toggleLeftDrawer,
       model: ref('home'),
       options: [
-        { label: 'Pricing', value: 'pricing' },
-        { label: 'About', value: 'about' },
-        { label: 'Contact', value: 'contact' }
+        { label: 'Pricing', value: 'pricing', to: '/pricing' },
+        { label: 'About', value: 'about', to: '/about' },
+        { label: 'Contact', value: 'contact', to: '/contact' }
       ]
     }
   }
@@ -71,50 +82,7 @@ export default {
 
 </script>
 
-
-<!--<template>
-  <div class="q-pa">
-    <q-layout view="lHh lpr lFf" class="shadow-2 rounded-borders">
-      <q-header>
-        <q-tabs v-model="tab" class="container">
-
-          <div class="left-flex">
-            <q-toolbar>
-              <q-btn flat dense round @click="toggleLeftDrawer" aria-label="Menu" icon="menu" class="xs">
-
-              </q-btn>
-              <q-toolbar-title class="text-h4" style="display:inline-block ">
-                 <img src="" width="101" class="logo" alt="logo">
-                <span class="title">Nutritious</span>
-              </q-toolbar-title>
-            </q-toolbar>
-          </div>
-
-          <div class="center-flex row">
-
-
-            <q-route-tab name="Home" label="Home" no-caps :ripple="false" to="/home" />
-            <q-route-tab name="Pricing" label="Pricing" no-caps :ripple="false" to="/pricing" />
-            <q-route-tab name="About" label="About" no-caps :ripple="false" to="/about" />
-            <q-route-tab name="Contact" label="Contact" no-caps :ripple="false" to="/contact" />
-          </div>
-        </q-tabs>
-      </q-header>
-
-      <q-page-container>
-        <q-page class="q-pa-md">
-          <RouterView />
-        </q-page>
-      </q-page-container>
-
-    </q-layout>
-  </div>
-</template>
-  -->
-
-
 <style>
-
 .container {
 
   padding-bottom: 0.45rem;
@@ -123,6 +91,26 @@ export default {
   padding-right: 1.46875rem;
 
   width: 80%;
+
+  /* max-width: 80rem; */
+
+  /* flex-direction: row; */
+}
+
+
+
+.left-flex {
+  margin-right: auto;
+  justify-content: space;
+}
+
+body .left-flex span {
+  margin-right: auto;
+  padding-left: 5rem;
+}
+
+.center-flex {
+  margin-right: auto;
 }
 
 @media (max-width: 768px) {
@@ -135,7 +123,28 @@ export default {
   }
 }
 
+.center-flex .q-tab {
+  display: inline-block;
+  min-height: 0px;
+}
 
+.responsive-toolbar span.block {
+  font-size: 16px;
+
+}
+
+.center-flex .q-tab--inactive {
+  opacity: 1.0;
+}
+
+.q-tab__label:hover {
+  color: #0C2340;
+}
+
+body.desktop .q-tab .q-focus-helper {
+  width: 0%;
+  height: 0%;
+}
 </style>
 
 
