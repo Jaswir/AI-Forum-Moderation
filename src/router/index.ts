@@ -1,9 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import RepositoriesView from '../views/RepositoriesView.vue'
-import IndexView from '../views/IndexView.vue'
-import ManagerView from '../views/ManagerView.vue'
-import HelpView from '../views/HelpView.vue'
+import PricingView from '../views/PricingView.vue'
+import ContactView from '../views/ContactView.vue'
+import AboutView from '../views/AboutView.vue'
 
 const routes = [
     {
@@ -12,27 +11,20 @@ const routes = [
         component: HomeView,
     },
     {
-        path: '/repositories',
-        name: 'Repositories',
-        component: RepositoriesView,
+        path: '/pricing',
+        name: 'Pricing',
+        component: PricingView,
     },
     {
-        path: '/index',
-        name: 'Index',
-        component: IndexView,
+        path: '/about',
+        name: 'About',
+        component: AboutView,
     },
     {
-        path: '/manager',
-        name: 'Manager',
-        component: ManagerView,
-    },
-    {
-        path: '/help',
-        name: 'HelpView',
-        component: HelpView,
+        path: '/contact',
+        name: 'Contact',
+        component: ContactView,
     }
-
-
 ]
 
 const router = createRouter({

@@ -1,7 +1,7 @@
 <template>
   <div class="q-pa-md">
     <q-table
-      title="Repositories"
+      title="Contact"
       :rows="rows"
       :columns="columns"
       row-key="name"

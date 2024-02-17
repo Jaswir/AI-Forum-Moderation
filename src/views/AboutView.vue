@@ -3,6 +3,6 @@
 
 <template>
   <main>
-    Index
+    About
   </main>
 </template>

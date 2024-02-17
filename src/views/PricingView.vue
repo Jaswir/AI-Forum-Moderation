@@ -3,6 +3,6 @@
 
 <template>
   <main>
-    Help
+    Pricing
   </main>
 </template>
