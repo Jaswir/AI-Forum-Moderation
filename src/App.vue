@@ -1,7 +1,7 @@
+
 <template>
   <div class="q-pa">
-
-    <q-toolbar class="bg-primary text-white q-my shadow-2 ">
+    <q-toolbar class="bg-primary text-white shadow-2">
       <q-btn flat round dense icon="menu" class="q-mr-sm xs">
         <q-menu>
           <q-list style="min-width: 100px">
@@ -18,9 +18,17 @@
         </q-menu>
 
       </q-btn>
+      <q-btn flat label="Nutritious" />
       <q-space />
 
-      <q-btn-toggle class="gt-xs responsive-toolbar" v-model="model" flat stretch toggle-color="yellow" :options="options" />
+      <!--
+        notice shrink property since we are placing it
+        as child of QToolbar
+      -->
+      <q-btn-toggle class="gt-xs responsive-toolbar" v-model="model" flat stretch toggle-color="yellow"
+        :options="options" />
+
+      <q-space />
     </q-toolbar>
   </div>
 </template>
@@ -107,14 +115,6 @@ export default {
 
 <style>
 
-@media only screen and (min-width: 900px) {
-
-  /* Adjust font size for even larger screens (e.g., desktops) */
-  .responsive-toolbar {
-    width: 50%;
-  }
-}
-
 .container {
 
   padding-bottom: 0.45rem;
@@ -123,26 +123,6 @@ export default {
   padding-right: 1.46875rem;
 
   width: 80%;
-
-  /* max-width: 80rem; */
-
-  /* flex-direction: row; */
-}
-
-
-
-.left-flex {
-  margin-right: auto;
-  justify-content: space;
-}
-
-body .left-flex span {
-  margin-right: auto;
-  padding-left: 5rem;
-}
-
-.center-flex {
-  margin-right: auto;
 }
 
 @media (max-width: 768px) {
@@ -155,28 +135,7 @@ body .left-flex span {
   }
 }
 
-.center-flex .q-tab {
-  display: inline-block;
-  min-height: 0px;
-}
 
-.center-flex .q-tab__label {
-  font-size: 16px;
-
-}
-
-.center-flex .q-tab--inactive {
-  opacity: 1.0;
-}
-
-.q-tab__label:hover {
-  color: #0C2340;
-}
-
-body.desktop .q-tab .q-focus-helper {
-  width: 0%;
-  height: 0%;
-}
 </style>
 
 
