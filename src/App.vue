@@ -6,13 +6,13 @@
         <q-btn flat round dense icon="menu" class="q-mr-sm xs">
           <q-menu>
             <q-list style="min-width: 100px">
-              <q-item clickable v-close-popup>
+              <q-item clickable v-close-popup to="pricing">
                 <q-item-section>Pricing</q-item-section>
               </q-item>
-              <q-item clickable v-close-popup>
+              <q-item clickable v-close-popup to="/about">
                 <q-item-section>About</q-item-section>
               </q-item>
-              <q-item clickable v-close-popup>
+              <q-item clickable v-close-popup  to="/contact">
                 <q-item-section>Contact</q-item-section>
               </q-item>
             </q-list>
