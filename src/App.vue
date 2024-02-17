@@ -2,11 +2,11 @@
 <template>
   <div class="q-pa">
     <q-layout>
-      <q-toolbar class="bg-primary text-white shadow-2">
+      <q-toolbar class="bg-primary text-white shadow-2" color>
         <q-btn flat round dense icon="menu" class="q-mr-sm xs">
           <q-menu>
             <q-list style="min-width: 100px">
-              <q-item clickable v-close-popup to="pricing">
+              <q-item clickable v-close-popup to="">
                 <q-item-section>Pricing</q-item-section>
               </q-item>
               <q-item clickable v-close-popup to="/about">
