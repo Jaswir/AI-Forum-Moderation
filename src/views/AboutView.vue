@@ -1,89 +1,72 @@
 <template>
-  <div class="q-pa-md row justify-center q-gutter-md relative-position">
-    <q-card class="my-card">
-
-      <q-card-section>
-        <div class="text-h4">Upload Image</div>
-        <div class="text-subtitle1">Upload an image of the food to get the ingredients and calorie information</div>
-      </q-card-section>
-
-
-      <div class="q-pa-md">
-        <q-img class="q-pa-md justify-center text-center " :src="imageUrl"
-          spinner-color="white" style="height: 250px; max-width: 250px"></q-img>
-        <!-- <img src="https://cdn.quasar.dev/img/mountains.jpg"> -->
+  <div class="demo-container q-pa-lg">
+    <h1>GET A DEMO</h1>
+    <p>Let us show you the magic of Help Scout. Our sales team offers one-on-one product demos for companies with more
+      than 10 employees.</p>
+    <q-form @submit="submitForm" class="demo-form">
+      <div class="form-row">
+        <q-input outlined placeholder="First name" />
+        <q-input outlined placeholder="Last name" />
       </div>
-
-      <div class="row q-pa-md">
-        <q-file v-model="image" label="Upload Image" filled style="max-width: 300px" @update:model-value="handleUpload()"
-          accept=".jpg, image/*">
-          <template v-slot:prepend>
-            <q-icon name="attachment" />
-          </template>
-        </q-file>
-
-        <q-btn @click="submit" class="text-sm font-medium bg-primary text-primary-foreground" color="primary"
-          label="Submit" />
+      <div class="form-row">
+        <q-input outlined placeholder="Company name" />
+        <q-input outlined placeholder="Work Email" type="email" />
       </div>
-
-      <div class="q-pa-md">
-        <label class="font-medium text-sm" for="ingredients">Ingredients</label>
-        <q-input outlined v-model="ingredients" class="q-pa-xs" placeholder="Detected ingredients will appear here"
-          readonly />
-      </div>
-
-    </q-card>
-
-
+      <q-input outlined placeholder="Number of employees at company" type="number" class="q-mb-md" />
+      <q-btn type="submit" color="primary">Get a Demo!</q-btn>
+    </q-form>
   </div>
 </template>
 
 <script>
-import { ref } from 'vue';
-import axios from 'axios';
-
-
 export default {
-  setup() {
-    const image = ref(null);
-    const imageUrl = ref('');
-    const ingredients = ref('');
-    const base64_image = ref('');
-
-    const handleUpload = () => {
-      console.log('handleUpload is triggered');
-      if (image.value) {
-
-        imageUrl.value = URL.createObjectURL(image.value);
-      }
-      let rawImg;
-      const reader = new FileReader();
-      reader.onload = () => {
-        rawImg = reader.result;
-        base64_image.value = rawImg;
-        console.log("Converted image to base64")
-      };
-      reader.readAsDataURL(image.value);
-    }
-
-    const submit = () => {
-
-      console.log("Base 64 For the api call:" + base64_image.value)
-
-    }
-
-    return {
-      image, imageUrl, ingredients, handleUpload, submit
+  methods: {
+    submitForm() {
+      // Your form submission logic here
     }
   }
 }
-
 </script>
- 
-<style>
-.my-card {
+
+<style scoped>
+.demo-container {
+  background-color: #ebebeb;
+  padding: 40px;
+  max-width: 400px;
+  margin: auto;
+  text-align: center;
+}
+
+h1 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+p {
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.q-input {
+  flex: 1;
+  margin-right: 10px; /* Adjust the space between inputs */
+}
+
+.q-input:last-child {
+  margin-right: 0;
+}
+
+.q-input[type="number"] {
   width: 100%;
-  max-width: 600px;
-  max-height: 600px
+}
+
+q-btn {
+  border-radius: 4px;
 }
 </style>

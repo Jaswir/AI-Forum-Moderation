@@ -1,74 +1,149 @@
 <template>
-  <q-card class="rounded-lg border bg-card text-card-foreground shadow-sm w-full max-w-3xl mx-auto">
-    <div class="q-pa-6">
-      <h3 class="text-2xl font-semibold whitespace-nowrap leading-none tracking-tight">Upload an image</h3>
-      <p class="text-sm text-muted-foreground">
-        Select an image of food to analyze its ingredients and calorie information
-      </p>
-    </div>
-    <div class="q-p-6 flex flex-col gap-4">
-      <div class="flex items-center gap-4">
-        <q-img src="/placeholder.svg" width="200" height="200" alt="Uploaded image" class="aspect-square rounded-lg border" />
-        <div class="w-full">
-          <div class="q-gutter-md">
-            <label class="text-sm font-medium leading-none" for="image">Image</label>
-            <q-input outlined v-model="image" type="file" class="q-pa-sm" accept="image/*" />
-          </div>
-          <div class="text-sm">
-            Supported file types: jpg, png. Maximum file size: 10MB.
-          </div>
-        </div>
+  <section class="pricing-section">
+    <h1 class="pricing-title">Pricing</h1>
+    <div class="pricing-cards">
+      <div class="card">
+        <h2 class="plan-name">Startup</h2>
+        <p class="plan-price">$28 / month</p>
+        <p class="plan-description">The essentials for when you're just getting started.</p>
+        <ul class="plan-features">
+          <li>2 projects</li>
+          <li>Up to 1,000 apps</li>
+          <li>Basic analytics</li>
+          <li>Email support</li>
+        </ul>
+        <button class="billing-button">Monthly billing</button>
       </div>
-      <div class="q-gutter-md">
-        <label class="font-medium text-sm" for="ingredients">Ingredients</label>
-        <q-input outlined v-model="ingredients" class="q-pa-sm" placeholder="Detected ingredients will appear here" readonly />
+      <div class="card recommended">
+        <div class="ribbon">RECOMMENDED</div>
+        <h2 class="plan-name">Business</h2>
+        <p class="plan-price">$32 / month</p>
+        <p class="plan-description">For businesses looking to achieve maximum efficiency and time savings.</p>
+        <ul class="plan-features">
+          <li>10 projects</li>
+          <li>Up to 10,000 apps</li>
+          <li>Advanced analytics</li>
+          <li>24-hour chat support</li>
+          <li>Channel management</li>
+        </ul>
+        <button class="billing-button">Monthly billing</button>
       </div>
-      <div class="q-gutter-md">
-        <label class="font-medium text-sm" for="calories">Calories</label>
-        <q-input outlined v-model="calories" class="q-pa-sm" placeholder="Calories" readonly />
+      <div class="card">
+        <h2 class="plan-name">Enterprise</h2>
+        <p class="plan-price">$48 / month</p>
+        <p class="plan-description">For businesses looking for the maximum competitive edge and expanding their reach.</p>
+        <ul class="plan-features">
+          <li>Unlimited projects</li>
+          <li>Unlimited apps</li>
+          <li>Advanced analytics</li>
+          <li>5x24 dedicated support response</li>
+          <li>Channel management</li>
+          <li>Competitor analysis</li>
+        </ul>
+        <button class="billing-button">Monthly billing</button>
       </div>
     </div>
-    <div class="q-p-6">
-      <q-btn @click="submit" class="text-sm font-medium bg-primary text-primary-foreground" color="primary" label="Submit" />
-    </div>
-  </q-card>
+  </section>
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      image: null,
-      ingredients: null,
-      calories: null,
-      previewImage: null
-    }
-  },
-  methods: {
-    submit() {
-      // Handle submission logic here
-    },
-    selectImage() {
-      this.$refs.fileInput.click()
-    },
-    pickFile() {
-      let input = this.$refs.fileInput
-      let file = input.files
-      if (file && file[0]) {
-        let reader = new FileReader
-        reader.onload = e => {
-          this.previewImage = e.target.result
-        }
-        reader.readAsDataURL(file[0])
-        this.$emit('input', file[0])
-      }
-    }
-  }
-}
+
 </script>
 
 <style>
-/* Add your custom styles here */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f7f7f7;
+}
+
+.pricing-section {
+  max-width: 960px;
+  margin: 40px auto;
+  text-align: center;
+}
+
+.pricing-title {
+  font-size: 2em;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.pricing-cards {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.card {
+  background-color: #e6e6e6;
+  padding: 20px;
+  border-radius: 8px;
+  width: 30%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.card .plan-name {
+  color: #333;
+  font-size: 1.5em;
+}
+
+.card .plan-price {
+  color: #333;
+  font-size: 2.5em;
+  margin: 10px 0;
+}
+
+.card .plan-description {
+  font-size: 0.9em;
+  margin-bottom: 15px;
+}
+
+.plan-features {
+  text-align: left;
+  list-style: none;
+  padding: 0;
+  margin-bottom: 15px;
+}
+
+.plan-features li {
+  margin-bottom: 10px;
+}
+
+.billing-button {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 1em;
+}
+
+.recommended .ribbon {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: #dc3545;
+  color: white;
+  padding: 5px;
+  font-size: 0.8em;
+  transform: rotate(45deg);
+}
+
+@media (max-width: 768px) {
+  .pricing-cards {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .card {
+    width: auto;
+  }
+}
 </style>
 
 
