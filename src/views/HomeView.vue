@@ -42,34 +42,36 @@
     <div class="q-pl-md col-lg-3 ">
       <q-card class="full-width">
         <q-card-section class="q-gutter-md ">
-          <div class="space-y-2">
-            <p class="text-h5 text-bold">Ingredients</p>
-            <q-input outlined v-model="ingredients" placeholder="Detected ingredients will appear here"
-              readonly />
 
-          </div>
-          <!-- <div class="space-y-2">
-            <p class="text-h5 text-bold">Calories</p>
+          <p class="text-h5 text-bold">Ingredients</p>
+          <!-- <q-input outlined v-model="ingredients" placeholder="Detected ingredients will appear here" readonly /> -->
+          <q-list dense>
+            <q-item v-for="(ingredient, index) in ingredients_ref" :key="index">
+              <q-item-section class="text-subtitle1">
+                <q-item-label>• {{ ingredient }}</q-item-label>
+              </q-item-section>
+            </q-item>
+          </q-list>
 
+
+          <div class="row items-center">
+            <p class="text-h5 text-bold">Calories:</p>
+            <p class="q-pl-sm text-subtitle1">{{ total_calories_ref }}</p>
           </div>
+
           <div class="space-y-2">
             <p class="text-h5 text-bold">Micro Nutrients</p>
-
+            <q-list dense>
+              <q-item class="text-subtitle1" v-for="(value, key) in micro_nutrients_ref" :key="key">
+                <q-item-section>
+                  <q-item-label>• {{ key }}:</q-item-label>
+                </q-item-section>
+                <q-item-section>
+                  <q-item-label>{{ value }}</q-item-label>
+                </q-item-section>
+              </q-item>
+            </q-list>
           </div>
-          <div class="">
-            <div class="">
-              <p class="text-subtitle  text-bold">Email</p>
-              <p>jaswirraghoe@gmail.com</p>
-            </div>
-            <div class="space-y-2">
-              <p class="text-subtitle text-bold">Phone</p>
-              <p>(415) 123-4567</p>
-            </div>
-            <div class="space-y-2">
-              <p class="text-subtitle-2 text-bold">Address</p>
-              <p>33 Shields St San Francisco, California(CA), 94132</p>
-            </div>
-          </div> -->
         </q-card-section>
       </q-card>
     </div>
@@ -87,8 +89,22 @@ export default {
   setup() {
     const image = ref(null);
     const imageUrl = ref('');
-    const ingredients = ref('');
+    const ingredients_ref = ref(['']);
+    const total_calories_ref = ref(0);
+    const micro_nutrients_ref = ref({
+      "cholesterol": 0,
+      "dietary_fiber": 0,
+      "potassium": 0,
+      "protein": 0,
+      "saturated_fat": 0,
+      "sodium": 0,
+      "sugars": 0,
+      "carbs": 0,
+      "total_fat": 0,
+    });
     const base64_image = ref('');
+
+
 
     const handleUpload = () => {
       console.log('handleUpload is triggered');
@@ -124,61 +140,61 @@ export default {
         'Content-Type': 'application/json'
       };
 
-      let response = {
-        "ingredients": [
-          {
-            "name": "roasted peanuts",
-            "calories": 5.87,
-            "cholesterol": 0,
-            "dietary_fiber": 0.08,
-            "phosphorus": null,
-            "potassium": 6.34,
-            "protein": 0.24,
-            "saturated_fat": 0.08,
-            "sodium": 4.1,
-            "sugars": 0.05,
-            "total_carbohydrate": 0.21,
-            "total_fat": 0.5,
-            "serving_quantity": 1,
-            "serving_unit": "peanut",
-            "serving_weight_grams": 1
-          },
-          {
-            "name": "vegetable oil",
-            "calories": 120.22,
-            "cholesterol": 0,
-            "dietary_fiber": 0,
-            "phosphorus": null,
-            "potassium": 0,
-            "protein": 0,
-            "saturated_fat": 1.01,
-            "sodium": 0,
-            "sugars": 0,
-            "total_carbohydrate": 0,
-            "total_fat": 13.6,
-            "serving_quantity": 1,
-            "serving_unit": "tbsp",
-            "serving_weight_grams": 13.6
-          },
-          {
-            "name": "salt",
-            "calories": 0,
-            "cholesterol": 0,
-            "dietary_fiber": 0,
-            "phosphorus": null,
-            "potassium": 0.12,
-            "protein": 0,
-            "saturated_fat": 0,
-            "sodium": 581.37,
-            "sugars": 0,
-            "total_carbohydrate": 0,
-            "total_fat": 0,
-            "serving_quantity": 0.25,
-            "serving_unit": "tsp",
-            "serving_weight_grams": 1.5
-          }
-        ]
-      }
+      // let response = {
+      //   "ingredients": [
+      //     {
+      //       "name": "roasted peanuts",
+      //       "calories": 5.87,
+      //       "cholesterol": 0,
+      //       "dietary_fiber": 0.08,
+      //       "phosphorus": null,
+      //       "potassium": 6.34,
+      //       "protein": 0.24,
+      //       "saturated_fat": 0.08,
+      //       "sodium": 4.1,
+      //       "sugars": 0.05,
+      //       "total_carbohydrate": 0.21,
+      //       "total_fat": 0.5,
+      //       "serving_quantity": 1,
+      //       "serving_unit": "peanut",
+      //       "serving_weight_grams": 1
+      //     },
+      //     {
+      //       "name": "vegetable oil",
+      //       "calories": 120.22,
+      //       "cholesterol": 0,
+      //       "dietary_fiber": 0,
+      //       "phosphorus": null,
+      //       "potassium": 0,
+      //       "protein": 0,
+      //       "saturated_fat": 1.01,
+      //       "sodium": 0,
+      //       "sugars": 0,
+      //       "total_carbohydrate": 0,
+      //       "total_fat": 13.6,
+      //       "serving_quantity": 1,
+      //       "serving_unit": "tbsp",
+      //       "serving_weight_grams": 13.6
+      //     },
+      //     {
+      //       "name": "salt",
+      //       "calories": 0,
+      //       "cholesterol": 0,
+      //       "dietary_fiber": 0,
+      //       "phosphorus": null,
+      //       "potassium": 0.12,
+      //       "protein": 0,
+      //       "saturated_fat": 0,
+      //       "sodium": 581.37,
+      //       "sugars": 0,
+      //       "total_carbohydrate": 0,
+      //       "total_fat": 0,
+      //       "serving_quantity": 0.25,
+      //       "serving_unit": "tsp",
+      //       "serving_weight_grams": 1.5
+      //     }
+      //   ]
+      // }
 
       let ingredients = []
       let total_calories = 0
@@ -195,50 +211,56 @@ export default {
         "serving_quantity": 0,
       }
 
-      for (let i = 0; i < response.ingredients.length; i++) {
-        const ingredient = response.ingredients[i];
-        const ingredient_name = response.ingredients[i].name;
-        ingredients.push(ingredient_name)
+      // for (let i = 0; i < response.ingredients.length; i++) {
+      //   const ingredient = response.ingredients[i];
+      //   const ingredient_name = response.ingredients[i].name;
+      //   ingredients.push(ingredient_name)
 
-        const calories = response.ingredients[i].calories;
-        total_calories += calories
+      //   const calories = response.ingredients[i].calories;
+      //   total_calories += calories
 
-        micro_nutrients.cholesterol += ingredient.cholesterol !== null ? ingredient.cholesterol : 0;
-        micro_nutrients.dietary_fiber += ingredient.dietary_fiber !== null ? ingredient.dietary_fiber : 0;
-        micro_nutrients.potassium += ingredient.potassium !== null ? ingredient.potassium : 0;
-        micro_nutrients.protein += ingredient.protein !== null ? ingredient.protein : 0;
-        micro_nutrients.saturated_fat += ingredient.saturated_fat !== null ? ingredient.saturated_fat : 0;
-        micro_nutrients.sodium += ingredient.sodium !== null ? ingredient.sodium : 0;
-        micro_nutrients.sugars += ingredient.sugars !== null ? ingredient.sugars : 0;
-        micro_nutrients.total_carbohydrate += ingredient.total_carbohydrate !== null ? ingredient.total_carbohydrate : 0;
-        micro_nutrients.total_fat += ingredient.total_fat !== null ? ingredient.total_fat : 0;
-        micro_nutrients.serving_quantity += ingredient.serving_quantity !== null ? ingredient.serving_quantity : 0;
-      }
+      //   micro_nutrients.cholesterol += ingredient.cholesterol !== null ? ingredient.cholesterol : 0;
+      //   micro_nutrients.dietary_fiber += ingredient.dietary_fiber !== null ? ingredient.dietary_fiber : 0;
+      //   micro_nutrients.potassium += ingredient.potassium !== null ? ingredient.potassium : 0;
+      //   micro_nutrients.protein += ingredient.protein !== null ? ingredient.protein : 0;
+      //   micro_nutrients.saturated_fat += ingredient.saturated_fat !== null ? ingredient.saturated_fat : 0;
+      //   micro_nutrients.sodium += ingredient.sodium !== null ? ingredient.sodium : 0;
+      //   micro_nutrients.ugars += ingredient.sugars !== null ? ingredient.sugars : 0;
+      //   micro_nutrients.carbs += ingredient.total_carbohydrate !== null ? ingredient.total_carbohydrate : 0;
+      //   micro_nutrients.total_fat += ingredient.total_fat !== null ? ingredient.total_fat : 0;
+      // }
 
-      console.log("Ingredients: ", ingredients)
-      console.log("Total Calories: ", total_calories)
-      console.log("Micro Nutrients: ", micro_nutrients)
+      // console.log("Ingredients: ", ingredients)
+      // console.log("Total Calories: ", total_calories)
+      // console.log("Micro Nutrients: ", micro_nutrients)
+
+      // ingredients_ref.value = ingredients
+      // total_calories_ref.value = total_calories
+      // micro_nutrients_ref.value = micro_nutrients
+
       // Make the POST request using Axios
-      // axios.post('https://jobmatch-gamma.vercel.app/api/nutrition/get_ingredients_from_image_base64',
-      //   payload, { headers })
-      //   .then(response => {
-      //     console.log('Response:', response.data);
+      axios.post('https://jobmatch-gamma.vercel.app/api/nutrition/get_ingredients_from_image_base64',
+        payload, { headers })
+        .then(response => {
+          console.log('Response:', response.data);
 
-      //     for (let i = 0; i < response.data.ingredients.length; i++) {
-      //       const name = response.data.ingredients[i].name;
-      //       console.log(` Ingredient ${i} name:` + name)
-      //       ingredients.value += name + ", ";
-      //     }
+          for (let i = 0; i < response.data.ingredients.length; i++) {
+            const name = response.data.ingredients[i].name;
+            console.log(` Ingredient ${i} name:` + name)
+            ingredients.value += name + ", ";
+          }
 
-      //   })
-      //   .catch(error => {
-      //     console.error('Error:', error);
-      //   });
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
 
     }
 
     return {
-      image, imageUrl, ingredients, handleUpload, submit
+      image, imageUrl, ingredients_ref,
+      total_calories_ref,
+      micro_nutrients_ref, handleUpload, submit
     }
   }
 }
