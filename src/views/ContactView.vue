@@ -1,143 +1,73 @@
 <template>
-  <div class="q-pa-md">
-    <q-table
-      title="Contact"
-      :rows="rows"
-      :columns="columns"
-      row-key="name"
-    />
+  <div class="q-pa-md row justify-center relative-position">
+    <q-card class="my-card">
+
+      <q-card-section class=" q-gutter-md ">
+        <div class="text-h4">Upload Image</div>
+        <div class="text-subtitle1">Upload an image of the food to get the ingredients</div>
+      </q-card-section>
+
+
+      <div class="q-pa-md text-center ">
+        <q-img class="q-pa-md" :src="'https://picsum.photos/500/300'" spinner-color="white"
+          style="height: 250px; max-width: 250px"></q-img>
+      </div>
+
+
+
+
+    </q-card>
+
+
   </div>
 </template>
 
 <script>
-const columns = [
-  {
-    name: 'name',
-    required: true,
-    label: 'Dessert (100g serving)',
-    align: 'left',
-    field: row => row.name,
-    format: val => `${val}`,
-    sortable: true
-  },
-  { name: 'calories', align: 'center', label: 'Calories', field: 'calories', sortable: true },
-  { name: 'fat', label: 'Fat (g)', field: 'fat', sortable: true },
-  { name: 'carbs', label: 'Carbs (g)', field: 'carbs' },
-  { name: 'protein', label: 'Protein (g)', field: 'protein' },
-  { name: 'sodium', label: 'Sodium (mg)', field: 'sodium' },
-  { name: 'calcium', label: 'Calcium (%)', field: 'calcium', sortable: true, sort: (a, b) => parseInt(a, 10) - parseInt(b, 10) },
-  { name: 'iron', label: 'Iron (%)', field: 'iron', sortable: true, sort: (a, b) => parseInt(a, 10) - parseInt(b, 10) }
-]
+import { ref } from 'vue';
+import axios from 'axios';
 
-const rows = [
-  {
-    name: 'Frozen Yogurt',
-    calories: 159,
-    fat: 6.0,
-    carbs: 24,
-    protein: 4.0,
-    sodium: 87,
-    calcium: '14%',
-    iron: '1%'
-  },
-  {
-    name: 'Ice cream sandwich',
-    calories: 237,
-    fat: 9.0,
-    carbs: 37,
-    protein: 4.3,
-    sodium: 129,
-    calcium: '8%',
-    iron: '1%'
-  },
-  {
-    name: 'Eclair',
-    calories: 262,
-    fat: 16.0,
-    carbs: 23,
-    protein: 6.0,
-    sodium: 337,
-    calcium: '6%',
-    iron: '7%'
-  },
-  {
-    name: 'Cupcake',
-    calories: 305,
-    fat: 3.7,
-    carbs: 67,
-    protein: 4.3,
-    sodium: 413,
-    calcium: '3%',
-    iron: '8%'
-  },
-  {
-    name: 'Gingerbread',
-    calories: 356,
-    fat: 16.0,
-    carbs: 49,
-    protein: 3.9,
-    sodium: 327,
-    calcium: '7%',
-    iron: '16%'
-  },
-  {
-    name: 'Jelly bean',
-    calories: 375,
-    fat: 0.0,
-    carbs: 94,
-    protein: 0.0,
-    sodium: 50,
-    calcium: '0%',
-    iron: '0%'
-  },
-  {
-    name: 'Lollipop',
-    calories: 392,
-    fat: 0.2,
-    carbs: 98,
-    protein: 0,
-    sodium: 38,
-    calcium: '0%',
-    iron: '2%'
-  },
-  {
-    name: 'Honeycomb',
-    calories: 408,
-    fat: 3.2,
-    carbs: 87,
-    protein: 6.5,
-    sodium: 562,
-    calcium: '0%',
-    iron: '45%'
-  },
-  {
-    name: 'Donut',
-    calories: 452,
-    fat: 25.0,
-    carbs: 51,
-    protein: 4.9,
-    sodium: 326,
-    calcium: '2%',
-    iron: '22%'
-  },
-  {
-    name: 'KitKat',
-    calories: 518,
-    fat: 26.0,
-    carbs: 65,
-    protein: 7,
-    sodium: 54,
-    calcium: '12%',
-    iron: '6%'
-  }
-]
 
 export default {
-  setup () {
+  setup() {
+    const image = ref(null);
+    const imageUrl = ref('');
+    const ingredients = ref('');
+    const base64_image = ref('');
+
+    const handleUpload = () => {
+      console.log('handleUpload is triggered');
+      if (image.value) {
+
+        imageUrl.value = URL.createObjectURL(image.value);
+      }
+      let rawImg;
+      const reader = new FileReader();
+      reader.onload = () => {
+        rawImg = reader.result;
+        base64_image.value = rawImg;
+        console.log("Converted image to base64")
+      };
+      reader.readAsDataURL(image.value);
+    }
+
+    const submit = () => {
+
+      console.log("Base 64 For the api call:" + base64_image.value)
+
+    }
+
     return {
-      columns,
-      rows
+      image, imageUrl, ingredients, handleUpload, submit
     }
   }
 }
+
 </script>
+ 
+<style>
+.my-card {
+  width: 100%;
+  max-width: 800px;
+  max-height: 800px
+}
+</style>
