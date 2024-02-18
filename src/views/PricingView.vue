@@ -1,57 +1,81 @@
 <template>
-  <section class="pricing-section">
-    <h1 class="pricing-title">Pricing</h1>
-    <div class="pricing-cards">
-      <div class="card">
-        <h2 class="plan-name">Starter</h2>
-        <p class="plan-price">$19 / month</p>
-        <p class="plan-description">Ideal for home cooks starting their culinary exploration.</p>
-        <ul class="plan-features">
-          <li>Identify ingredients for 5 meals per month</li>
-          <li>Access to 500-ingredient database</li>
-          <li>Recipe suggestions for up to 20 groceries</li>
-          <li>Community support and basic tips</li>
-        </ul>
-        <button class="billing-button">Monthly billing</button>
-      </div>
-      <div class="card recommended">
-        <div class="ribbon">RECOMMENDED</div>
-        <h2 class="plan-name">Professional</h2>
-        <p class="plan-price">$39 / month</p>
-        <p class="plan-description">Perfect for cooking enthusiasts improving their skills.</p>
-        <ul class="plan-features">
-          <li>Identify ingredients for 20 meals per month</li>
-          <li>Access to 2,000-ingredient database</li>
-          <li>Unlimited grocery-based recipe suggestions</li>
-          <li>Priority email and chat support</li>
-          <li>Flavor profile analysis</li>
-          <li>Exclusive cooking content</li>
-        </ul>
-        <button class="billing-button">Monthly billing</button>
-      </div>
-      <div class="card">
-        <h2 class="plan-name">Enterprise</h2>
-        <p class="plan-price">$99 / month</p>
-        <p class="plan-description">Designed for culinary businesses seeking a competitive edge.</p>
-        <ul class="plan-features">
-          <li>Unlimited meal ingredient identification</li>
-          <li>Full ingredient database access</li>
-          <li>Customizable recipe engine</li>
-          <li>24/7 priority support with account manager</li>
-          <li>Inventory system integration</li>
-          <li>Food trend analytics</li>
-          <li>White-label app option</li>
-        </ul>
-        <button class="billing-button">Monthly billing</button>
-      </div>
+  <q-page class="q-pa-md pricing-section">
+    <h1 class="q-pa-md text-h4 text-center">Pricing</h1>
+    <div class="q-gutter-md row justify-center">
+      <!-- Starter Plan -->
+      <q-card class="card q-ma-xs" style="max-width: 400px;">
+        <q-card-section>
+          <h2 class="text-h5">Starter</h2>
+          <p class="text-primary text-h6">$19 / month</p>
+          <p class="text-grey">Ideal for home cooks and food enthusiasts.</p>
+          <q-list>
+            <q-item v-for="item in starterFeatures" :key="item">
+              <q-item-section>{{ item }}</q-item-section>
+            </q-item>
+          </q-list>
+          <q-btn class="q-mt-md" color="primary" @click="submitForm">Monthly billing</q-btn>
+        </q-card-section>
+      </q-card>
+      <!-- Professional Plan -->
+      <q-card class="card recommended q-ma-xs column" style="max-width: 400px;">
+        <q-card-section>
+          <q-badge color="teal" class="ribbon">RECOMMENDED</q-badge>
+          <h2 class="text-h5">Professional</h2>
+          <p class="text-primary text-h6">$39 / month</p>
+          <p class="text-grey">Perfect for cooking professionals and frequent users.</p>
+          <q-list>
+            <q-item v-for="item in professionalFeatures" :key="item">
+              <q-item-section>{{ item }}</q-item-section>
+            </q-item>
+          </q-list>
+          <q-space/>
+          <q-btn class="q-mt-md" color="primary" @click="submitForm">Monthly billing</q-btn>
+        </q-card-section>
+      </q-card>
+      <!-- Enterprise Plan -->
+      <q-card class="card q-ma-xs" style="max-width: 400px;">
+        <q-card-section>
+          <h2 class="text-h5">Enterprise</h2>
+          <p class="text-primary text-h6">$99 / month</p>
+          <p class="text-grey">Designed for culinary businesses and food industry professionals.</p>
+          <q-list>
+            <q-item v-for="item in enterpriseFeatures" :key="item">
+              <q-item-section>{{ item }}</q-item-section>
+            </q-item>
+          </q-list>
+          <q-btn class="q-mt-md" color="primary" @click="submitForm">Monthly billing</q-btn>
+        </q-card-section>
+      </q-card>
     </div>
-  </section>
+  </q-page>
 </template>
-
-
 
 <script>
 export default {
+  data() {
+    return {
+      starterFeatures: [
+        "Identify ingredients for up to 5 meals per month",
+        "Access to 500 common ingredients database",
+        "Recipe suggestions based on 20 groceries",
+        "Community support and basic app features"
+      ],
+      professionalFeatures: [
+        "Identify ingredients for up to 20 meals per month",
+        "Access to 2,000 ingredients including rare items",
+        "Unlimited grocery inputs for recipes",
+        "Priority support and professional content"
+      ],
+      enterpriseFeatures: [
+        "Unlimited meal ingredient identification",
+        "Full ingredient database access",
+        "Inventory management system integration",
+        "24/7 dedicated support and account manager",
+        "Advanced analytics on food trends",
+        "White-label app option"
+      ]
+    }
+  },
   methods: {
     submitForm() {
       // Your form submission logic here
@@ -61,100 +85,35 @@ export default {
 </script>
 
 <style>
-body {
-  font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f7f7f7;
-}
-
-.pricing-section {
-  max-width: 960px;
-  margin: 40px auto;
-  text-align: center;
-}
-
-.pricing-title {
-  font-size: 2em;
-  color: #333;
-  margin-bottom: 30px;
-}
-
-.pricing-cards {
-  display: flex;
-  justify-content: space-around;
-  gap: 20px;
-}
-
 .card {
   background-color: #e6e6e6;
-  padding: 20px;
   border-radius: 8px;
-  width: 30%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  position: relative;
 }
 
-.card .plan-name {
-  color: #333;
-  font-size: 1.5em;
-}
-
-.card .plan-price {
-  color: #333;
-  font-size: 2.5em;
-  margin: 10px 0;
-}
-
-.card .plan-description {
-  font-size: 0.9em;
-  margin-bottom: 15px;
-}
-
-.plan-features {
-  text-align: left;
-  list-style: none;
-  padding: 0;
-  margin-bottom: 15px;
-}
-
-.plan-features li {
-  margin-bottom: 10px;
-}
-
-.billing-button {
-  background-color: #28a745;
-  color: white;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 100%;
-  font-size: 1em;
-}
-
-.recommended .ribbon {
+.ribbon {
   position: absolute;
-  top: -10px;
-  right: -10px;
-  background-color: #dc3545;
-  color: white;
-  padding: 5px;
-  font-size: 0.8em;
-  transform: rotate(45deg);
+  top: -8px;
+  right: -8px;
 }
 
-@media (max-width: 768px) {
-  .pricing-cards {
-    flex-direction: column;
-    gap: 15px;
-  }
+.text-h4 {
+  font-size: 24px;
+}
 
-  .card {
-    width: auto;
-  }
+.text-h5 {
+  font-size: 20px;
+}
+
+.text-h6 {
+  font-size: 16px;
+}
+
+.text-primary {
+  color: #28a745;
+}
+
+.text-grey {
+  color: #555;
 }
 </style>
-
-
-
