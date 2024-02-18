@@ -20,14 +20,13 @@
 
         </q-btn>
 
-        
+
         <q-btn class="text-h5" flat no-caps to="/">
           <q-avatar>
             <img src="/assets/images/fruits2.svg" width="101" class="logo" alt="logo">
           </q-avatar>
           <div class="q-ml-sm">Nutritious</div>
         </q-btn>
-
         <q-space />
 
         <!--
@@ -96,7 +95,6 @@ export default {
   font-size: 16px;
 
 }
-
 </style>
 
 
