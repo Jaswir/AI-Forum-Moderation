@@ -6,7 +6,10 @@
         <q-btn flat round dense icon="menu" class="q-mr-sm xs">
           <q-menu>
             <q-list style="min-width: 100px">
-              <q-item clickable v-close-popup to="">
+              <q-item clickable v-close-popup to="/home">
+                <q-item-section>Home</q-item-section>
+              </q-item>
+              <q-item clickable v-close-popup to="/pricing">
                 <q-item-section>Pricing</q-item-section>
               </q-item>
               <q-item clickable v-close-popup to="/about">
@@ -79,6 +82,7 @@ export default {
       toggleLeftDrawer,
       model: ref('home'),
       options: [
+        { label: 'Home', value: 'home', to: '/'},
         { label: 'Pricing', value: 'pricing', to: '/pricing' },
         { label: 'About', value: 'about', to: '/about' },
         { label: 'Contact', value: 'contact', to: '/contact' }

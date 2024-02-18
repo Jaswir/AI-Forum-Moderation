@@ -15,7 +15,7 @@
           <li>Community support and basic app features</li>
         </ul>
         <q-space />
-        <q-btn class="q-mt-md" color="primary" @click="submitForm">Monthly billing</q-btn>
+        <q-btn class="q-mt-md" color="primary" @click="submitForm">Get Started</q-btn>
       </q-card>
       <!-- Professional Plan -->
       <q-card class="card recommended q-pa-md column" style="max-width: 400px;">
@@ -31,7 +31,7 @@
           <li>Priority support and professional content</li>
         </ul>
         <q-space />
-        <q-btn class="q-mt-md" color="primary" @click="submitForm">Monthly billing</q-btn>
+        <q-btn class="q-mt-md" color="primary" @click="submitForm">Get Started</q-btn>
 
       </q-card>
       <!-- Enterprise Plan -->
@@ -48,7 +48,7 @@
           <li>Advanced analytics on food trends</li>
           <li>White-label app option</li>
         </ul>
-        <q-btn class="q-mt-md" color="primary" @click="submitForm">Monthly billing</q-btn>
+        <q-btn class="q-mt-md" color="primary" @click="submitForm">Get Started</q-btn>
 
       </q-card>
     </div>

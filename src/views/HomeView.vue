@@ -68,9 +68,9 @@ export default {
       const reader = new FileReader();
       reader.onload = () => {
         rawImg = reader.result;
-        base64_image.value = rawImg;
+        base64_image.value = rawImg.split(',')[1];
 
-
+        console.log(base64_image.value)
         console.log("image value", image.value)
         console.log("imageUrl.value", imageUrl.value)
       };
@@ -81,24 +81,88 @@ export default {
 
 
 
-      let payload = base64_image.value;
+      let payload = {
+        "image_base64": base64_image.value
+      }
 
-      // console.log("Payload multi nooo:" + payload)
+      console.log("" + payload)
 
       const headers = {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       };
 
+      let response = {
+        "ingredients": [
+          {
+            "name": "roasted peanuts",
+            "calories": 5.87,
+            "cholesterol": 0,
+            "dietary_fiber": 0.08,
+            "phosphorus": null,
+            "potassium": 6.34,
+            "protein": 0.24,
+            "saturated_fat": 0.08,
+            "sodium": 4.1,
+            "sugars": 0.05,
+            "total_carbohydrate": 0.21,
+            "total_fat": 0.5,
+            "serving_quantity": 1,
+            "serving_unit": "peanut",
+            "serving_weight_grams": 1
+          },
+          {
+            "name": "vegetable oil",
+            "calories": 120.22,
+            "cholesterol": 0,
+            "dietary_fiber": 0,
+            "phosphorus": null,
+            "potassium": 0,
+            "protein": 0,
+            "saturated_fat": 1.01,
+            "sodium": 0,
+            "sugars": 0,
+            "total_carbohydrate": 0,
+            "total_fat": 13.6,
+            "serving_quantity": 1,
+            "serving_unit": "tbsp",
+            "serving_weight_grams": 13.6
+          },
+          {
+            "name": "salt",
+            "calories": 0,
+            "cholesterol": 0,
+            "dietary_fiber": 0,
+            "phosphorus": null,
+            "potassium": 0.12,
+            "protein": 0,
+            "saturated_fat": 0,
+            "sodium": 581.37,
+            "sugars": 0,
+            "total_carbohydrate": 0,
+            "total_fat": 0,
+            "serving_quantity": 0.25,
+            "serving_unit": "tsp",
+            "serving_weight_grams": 1.5
+          }
+        ]
+      }
       // Make the POST request using Axios
-      axios.post('https://jobmatch-gamma.vercel.app/api/nutrition/get_ingredients_from_image_base64',
-        payload, { headers })
-        .then(response => {
-          console.log('Response:', response.data);
-        })
-        .catch(error => {
-          console.error('Error:', error);
-        });
+      // axios.post('https://jobmatch-gamma.vercel.app/api/nutrition/get_ingredients_from_image_base64',
+      //   payload, { headers })
+      //   .then(response => {
+      //     console.log('Response:', response.data);
+
+      //     for (let i = 0; i < response.data.ingredients.length; i++) {
+      //       const name = response.data.ingredients[i].name;
+      //       console.log(` Ingredient ${i} name:` + name)
+      //       ingredients.value += name + ", ";
+      //     }
+
+      //   })
+      //   .catch(error => {
+      //     console.error('Error:', error);
+      //   });
 
     }
 
