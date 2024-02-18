@@ -1,46 +1,78 @@
 <template>
   <div class="q-pa-md row justify-center ">
-    <q-card class="my-card">
 
-      <q-card-section class=" q-gutter-md ">
-        <div class="text-h4">Upload Image</div>
-        <div class="text-subtitle1">Upload an image of the food to get the ingredients</div>
-      </q-card-section>
+    <div class="col-12 col-lg-7">
+      <q-card class="my-card">
 
-      <div class="q-pa-md text-center ">
-        <q-img class="q-pa-md justify-center text-center " :src="imageUrl" spinner-color="white"
-          style="height: 250px; max-width: 250px"></q-img>
-        <!-- <img src="https://cdn.quasar.dev/img/mountains.jpg"> -->
-      </div>
+        <q-card-section class=" q-gutter-md ">
+          <div class="text-h4">Upload Image</div>
+          <div class="text-subtitle1">Upload an image of the food to get the ingredients</div>
+        </q-card-section>
 
-
-
-
-      <div class="column">
-        <div class="row q-pa-md ">
-          <q-file v-model="image" label="Upload Image" filled style="max-width: 300px"
-            @update:model-value="handleUpload()" accept=".jpg, image/*">
-            <template v-slot:prepend>
-              <q-icon name="attachment" />
-            </template>
-          </q-file>
-
-          <div class="q-pl-md"> </div>
-
-          <q-btn @click="submit" class="text-sm font-medium bg-primary text-primary-foreground" color="primary"
-            label="Submit" />
+        <div class="q-pa-md text-center ">
+          <q-img class="q-pa-md justify-center text-center " :src="imageUrl" spinner-color="white"
+            style="height: 250px; max-width: 250px"></q-img>
+          <!-- <img src="https://cdn.quasar.dev/img/mountains.jpg"> -->
         </div>
-        <div class="q-pa-md">
-          <label class="font-medium text-sm" for="ingredients">Ingredients</label>
-          <q-input outlined v-model="ingredients" class="q-pa-xs" placeholder="Detected ingredients will appear here"
-            readonly />
+        <div class="column">
+          <div class="row q-pa-md ">
+            <q-file v-model="image" label="Upload Image" filled style="max-width: 300px"
+              @update:model-value="handleUpload()" accept=".jpg, image/*">
+              <template v-slot:prepend>
+                <q-icon name="attachment" />
+              </template>
+            </q-file>
+
+            <div class="q-pl-md"> </div>
+
+            <q-btn @click="submit" class="text-sm font-medium bg-primary text-primary-foreground" color="primary"
+              label="Submit" />
+          </div>
+          <!-- <div class="q-pa-md">
+            <label class="font-medium text-sm" for="ingredients">Ingredients</label>
+            <q-input outlined v-model="ingredients" class="q-pa-xs" placeholder="Detected ingredients will appear here"
+              readonly />
+          </div> -->
+
         </div>
+      </q-card>
 
-      </div>
+    </div>
 
+    <div class="q-pl-md col-lg-3 ">
+      <q-card class="full-width">
+        <q-card-section class="q-gutter-md ">
+          <div class="space-y-2">
+            <p class="text-h5 text-bold">Ingredients</p>
+            <q-input outlined v-model="ingredients" placeholder="Detected ingredients will appear here"
+              readonly />
 
+          </div>
+          <!-- <div class="space-y-2">
+            <p class="text-h5 text-bold">Calories</p>
 
-    </q-card>
+          </div>
+          <div class="space-y-2">
+            <p class="text-h5 text-bold">Micro Nutrients</p>
+
+          </div>
+          <div class="">
+            <div class="">
+              <p class="text-subtitle  text-bold">Email</p>
+              <p>jaswirraghoe@gmail.com</p>
+            </div>
+            <div class="space-y-2">
+              <p class="text-subtitle text-bold">Phone</p>
+              <p>(415) 123-4567</p>
+            </div>
+            <div class="space-y-2">
+              <p class="text-subtitle-2 text-bold">Address</p>
+              <p>33 Shields St San Francisco, California(CA), 94132</p>
+            </div>
+          </div> -->
+        </q-card-section>
+      </q-card>
+    </div>
 
 
   </div>
@@ -216,7 +248,6 @@ export default {
 <style>
 .my-card {
   width: 100%;
-  max-width: 600px;
-  max-height: 600px
+
 }
 </style>
