@@ -70,9 +70,9 @@ export default {
         rawImg = reader.result;
         base64_image.value = rawImg.split(',')[1];
 
-        console.log(base64_image.value)
-        console.log("image value", image.value)
-        console.log("imageUrl.value", imageUrl.value)
+        // console.log(base64_image.value)
+        // console.log("image value", image.value)
+        // console.log("imageUrl.value", imageUrl.value)
       };
       reader.readAsDataURL(image.value);
     }
@@ -147,6 +147,45 @@ export default {
           }
         ]
       }
+
+      let ingredients = []
+      let total_calories = 0
+      let micro_nutrients = {
+        "cholesterol": 0,
+        "dietary_fiber": 0,
+        "potassium": 0,
+        "protein": 0,
+        "saturated_fat": 0,
+        "sodium": 0,
+        "sugars": 0,
+        "total_carbohydrate": 0,
+        "total_fat": 0,
+        "serving_quantity": 0,
+      }
+
+      for (let i = 0; i < response.ingredients.length; i++) {
+        const ingredient = response.ingredients[i];
+        const ingredient_name = response.ingredients[i].name;
+        ingredients.push(ingredient_name)
+
+        const calories = response.ingredients[i].calories;
+        total_calories += calories
+
+        micro_nutrients.cholesterol += ingredient.cholesterol !== null ? ingredient.cholesterol : 0;
+        micro_nutrients.dietary_fiber += ingredient.dietary_fiber !== null ? ingredient.dietary_fiber : 0;
+        micro_nutrients.potassium += ingredient.potassium !== null ? ingredient.potassium : 0;
+        micro_nutrients.protein += ingredient.protein !== null ? ingredient.protein : 0;
+        micro_nutrients.saturated_fat += ingredient.saturated_fat !== null ? ingredient.saturated_fat : 0;
+        micro_nutrients.sodium += ingredient.sodium !== null ? ingredient.sodium : 0;
+        micro_nutrients.sugars += ingredient.sugars !== null ? ingredient.sugars : 0;
+        micro_nutrients.total_carbohydrate += ingredient.total_carbohydrate !== null ? ingredient.total_carbohydrate : 0;
+        micro_nutrients.total_fat += ingredient.total_fat !== null ? ingredient.total_fat : 0;
+        micro_nutrients.serving_quantity += ingredient.serving_quantity !== null ? ingredient.serving_quantity : 0;
+      }
+
+      console.log("Ingredients: ", ingredients)
+      console.log("Total Calories: ", total_calories)
+      console.log("Micro Nutrients: ", micro_nutrients)
       // Make the POST request using Axios
       // axios.post('https://jobmatch-gamma.vercel.app/api/nutrition/get_ingredients_from_image_base64',
       //   payload, { headers })
