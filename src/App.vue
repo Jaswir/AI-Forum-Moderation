@@ -19,11 +19,15 @@
           </q-menu>
 
         </q-btn>
-        <q-avatar>
-          <img src="/assets/images/fruits2.svg" width="101" class="logo" alt="logo">
-        </q-avatar>
-        <q-btn class="text-h5" flat label="Nutritious" no-caps to="/" />
+
         
+        <q-btn class="text-h5" flat no-caps to="/">
+          <q-avatar>
+            <img src="/assets/images/fruits2.svg" width="101" class="logo" alt="logo">
+          </q-avatar>
+          <div class="q-ml-sm">Nutritious</div>
+        </q-btn>
+
         <q-space />
 
         <!--
@@ -86,9 +90,11 @@ export default {
 
 </script>
 
+
 <style>
-.logo path {
-  fill: red; /* Change 'red' to the color you desire */
+.responsive-toolbar span.block {
+  font-size: 16px;
+
 }
 
 </style>
