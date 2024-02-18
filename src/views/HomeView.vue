@@ -19,9 +19,6 @@
       <label class="font-medium text-sm" for="ingredients">Ingredients</label>
       <q-input outlined v-model="ingredients" class="q-pa-xs" placeholder="Detected ingredients will appear here"
         readonly />
-
-      <label class="font-medium text-sm" for="calories">Calories</label>
-      <q-input outlined v-model="calories" class="q-pa-xs" placeholder="Calories" readonly />
     </div>
 
   </div>
@@ -29,21 +26,40 @@
  
 <script>
 import { ref } from 'vue';
+import axios from 'axios';
+
 
 export default {
   setup() {
     const image = ref(null);
     const imageUrl = ref('');
+    const ingredients = ref('');
+    const base64_image = ref('');
+
     const handleUpload = () => {
       console.log('handleUpload is triggered');
       if (image.value) {
 
         imageUrl.value = URL.createObjectURL(image.value);
       }
+      let rawImg;
+      const reader = new FileReader();
+      reader.onload = () => {
+        rawImg = reader.result;
+        base64_image.value = rawImg;
+        console.log("Converted image to base64")
+      };
+      reader.readAsDataURL(image.value);
+    }
+
+    const submit = () => {
+
+      console.log("Base 64 For the api call:" + base64_image.value)
+
     }
 
     return {
-      image, imageUrl, handleUpload
+      image, imageUrl, ingredients, handleUpload, submit
     }
   }
 }
