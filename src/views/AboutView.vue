@@ -8,7 +8,7 @@
         <h2 class="text-h5">Starter</h2>
         <p class="text-primary text-h6">$19 / month</p>
         <p class="text-grey">Ideal for home cooks and food enthusiasts.</p>
-        <ul>
+        <ul class="list-padding">
           <li>Identify ingredients for up to 5 meals per month</li>
           <li>Access to 500 common ingredients database</li>
           <li>Recipe suggestions based on 20 groceries</li>
@@ -24,7 +24,7 @@
         <h2 class="text-h5">Professional</h2>
         <p class="text-primary text-h6">$39 / month</p>
         <p class="text-grey">Perfect for cooking professionals and frequent users.</p>
-        <ul>
+        <ul class="list-padding">
           <li>Identify ingredients for up to 20 meals per month</li>
           <li>Access to 2,000 ingredients including rare items</li>
           <li>Unlimited grocery inputs for recipes</li>
@@ -40,7 +40,7 @@
         <h2 class="text-h5">Enterprise</h2>
         <p class="text-primary text-h6">$99 / month</p>
         <p class="text-grey">Designed for culinary businesses and food industry professionals.</p>
-        <ul>
+        <ul class="list-padding">
           <li>Unlimited meal ingredient identification</li>
           <li>Full ingredient database access</li>
           <li>Inventory management system integration</li>
@@ -48,7 +48,6 @@
           <li>Advanced analytics on food trends</li>
           <li>White-label app option</li>
         </ul>
-
         <q-btn class="q-mt-md" color="primary" @click="submitForm">Monthly billing</q-btn>
 
       </q-card>
@@ -67,6 +66,11 @@ export default {
 </script>
 
 <style>
+.list-padding li {
+  padding: 5px 0;
+  /* Adjust padding as needed */
+}
+
 .card {
   background-color: #e6e6e6;
   border-radius: 8px;

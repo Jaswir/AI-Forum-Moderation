@@ -4,50 +4,52 @@
     <div class="q-gutter-md row justify-center">
       <!-- Starter Plan -->
       <q-card class="card q-pa-md column" style="max-width: 400px;">
-        <q-card-section>
-          <h2 class="text-h5">Starter</h2>
-          <p class="text-primary text-h6">$19 / month</p>
-          <p class="text-grey">Ideal for home cooks and food enthusiasts.</p>
-          <q-list>
-            <q-item v-for="item in starterFeatures" :key="item">
-              <q-item-section> * {{ item }}</q-item-section>
-            </q-item>
-          </q-list>
-        </q-card-section>
+
+        <h2 class="text-h5">Starter</h2>
+        <p class="text-primary text-h6">$19 / month</p>
+        <p class="text-grey">Ideal for home cooks and food enthusiasts.</p>
+        <ul class="list-padding">
+          <li>Identify ingredients for up to 5 meals per month</li>
+          <li>Access to 500 common ingredients database</li>
+          <li>Recipe suggestions based on 20 groceries</li>
+          <li>Community support and basic app features</li>
+        </ul>
         <q-space />
         <q-btn class="q-mt-md" color="primary" @click="submitForm">Monthly billing</q-btn>
       </q-card>
       <!-- Professional Plan -->
-      <q-card class="card recommended card q-pa-md column" style="max-width: 400px;">
+      <q-card class="card recommended q-pa-md column" style="max-width: 400px;">
 
-          <q-badge color="teal" class="ribbon">RECOMMENDED</q-badge>
-          <h2 class="text-h5">Professional</h2>
-          <p class="text-primary text-h6">$39 / month</p>
-          <p class="text-grey">Perfect for cooking professionals and frequent users.</p>
-          <q-list>
-            <q-item v-for="item in professionalFeatures" :key="item">
-              <q-item-section> * {{ item }}</q-item-section>
-            </q-item>
-          </q-list>
-
-
+        <q-badge color="teal" class="ribbon">RECOMMENDED</q-badge>
+        <h2 class="text-h5">Professional</h2>
+        <p class="text-primary text-h6">$39 / month</p>
+        <p class="text-grey">Perfect for cooking professionals and frequent users.</p>
+        <ul class="list-padding">
+          <li>Identify ingredients for up to 20 meals per month</li>
+          <li>Access to 2,000 ingredients including rare items</li>
+          <li>Unlimited grocery inputs for recipes</li>
+          <li>Priority support and professional content</li>
+        </ul>
         <q-space />
         <q-btn class="q-mt-md" color="primary" @click="submitForm">Monthly billing</q-btn>
+
       </q-card>
       <!-- Enterprise Plan -->
       <q-card class="card q-pa-md column" style="max-width: 400px;">
-       
-          <h2 class="text-h5">Enterprise</h2>
-          <p class="text-primary text-h6">$99 / month</p>
-          <p class="text-grey">Designed for culinary businesses and food industry professionals.</p>
-          <q-list>
-            <q-item v-for="item in enterpriseFeatures" :key="item">
-              <q-item-section> * {{ item }}</q-item-section>
-            </q-item>
-          </q-list>
-     
-        <q-space />
+
+        <h2 class="text-h5">Enterprise</h2>
+        <p class="text-primary text-h6">$99 / month</p>
+        <p class="text-grey">Designed for culinary businesses and food industry professionals.</p>
+        <ul class="list-padding">
+          <li>Unlimited meal ingredient identification</li>
+          <li>Full ingredient database access</li>
+          <li>Inventory management system integration</li>
+          <li>24/7 dedicated support and account manager</li>
+          <li>Advanced analytics on food trends</li>
+          <li>White-label app option</li>
+        </ul>
         <q-btn class="q-mt-md" color="primary" @click="submitForm">Monthly billing</q-btn>
+
       </q-card>
     </div>
   </q-page>
@@ -55,30 +57,6 @@
 
 <script>
 export default {
-  data() {
-    return {
-      starterFeatures: [
-        "Identify ingredients for up to 5 meals per month",
-        "Access to 500 common ingredients database",
-        "Recipe suggestions based on 20 groceries",
-        "Community support and basic app features"
-      ],
-      professionalFeatures: [
-        "Identify ingredients for up to 20 meals per month",
-        "Access to 2,000 ingredients including rare items",
-        "Unlimited grocery inputs for recipes",
-        "Priority support and professional content"
-      ],
-      enterpriseFeatures: [
-        "Unlimited meal ingredient identification",
-        "Full ingredient database access",
-        "Inventory management system integration",
-        "24/7 dedicated support and account manager",
-        "Advanced analytics on food trends",
-        "White-label app option"
-      ]
-    }
-  },
   methods: {
     submitForm() {
       // Your form submission logic here
@@ -88,6 +66,11 @@ export default {
 </script>
 
 <style>
+.list-padding li {
+  padding: 5px 0;
+  /* Adjust padding as needed */
+}
+
 .card {
   background-color: #e6e6e6;
   border-radius: 8px;

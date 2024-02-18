@@ -69,14 +69,36 @@ export default {
       reader.onload = () => {
         rawImg = reader.result;
         base64_image.value = rawImg;
-        console.log("Converted image to base64")
+
+
+        console.log("image value", image.value)
+        console.log("imageUrl.value", imageUrl.value)
       };
       reader.readAsDataURL(image.value);
     }
 
     const submit = () => {
 
-      console.log("Base 64 For the api call:" + base64_image.value)
+
+
+      let payload = base64_image.value;
+
+      // console.log("Payload multi nooo:" + payload)
+
+      const headers = {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      };
+
+      // Make the POST request using Axios
+      axios.post('https://jobmatch-gamma.vercel.app/api/nutrition/get_ingredients_from_image_base64',
+        payload, { headers })
+        .then(response => {
+          console.log('Response:', response.data);
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
 
     }
 
