@@ -12,14 +12,18 @@
               <q-item clickable v-close-popup to="/about">
                 <q-item-section>About</q-item-section>
               </q-item>
-              <q-item clickable v-close-popup  to="/contact">
+              <q-item clickable v-close-popup to="/contact">
                 <q-item-section>Contact</q-item-section>
               </q-item>
             </q-list>
           </q-menu>
 
         </q-btn>
+        <q-avatar>
+          <img src="/assets/images/fruits2.svg" width="101" class="logo" alt="logo">
+        </q-avatar>
         <q-btn class="text-h5" flat label="Nutritious" no-caps to="/" />
+        
         <q-space />
 
         <!--
@@ -83,68 +87,10 @@ export default {
 </script>
 
 <style>
-.container {
-
-  padding-bottom: 0.45rem;
-  padding-top: 0.45rem;
-  padding-left: 1.46875rem;
-  padding-right: 1.46875rem;
-
-  width: 80%;
-
-  /* max-width: 80rem; */
-
-  /* flex-direction: row; */
+.logo path {
+  fill: red; /* Change 'red' to the color you desire */
 }
 
-
-
-.left-flex {
-  margin-right: auto;
-  justify-content: space;
-}
-
-body .left-flex span {
-  margin-right: auto;
-  padding-left: 5rem;
-}
-
-.center-flex {
-  margin-right: auto;
-}
-
-@media (max-width: 768px) {
-
-  /* Hide the center-flex div on smaller screens */
-  .center-flex {
-    background-color: #0C2340;
-    display: none !important;
-
-  }
-}
-
-.center-flex .q-tab {
-  display: inline-block;
-  min-height: 0px;
-}
-
-.responsive-toolbar span.block {
-  font-size: 16px;
-
-}
-
-.center-flex .q-tab--inactive {
-  opacity: 1.0;
-}
-
-.q-tab__label:hover {
-  color: #0C2340;
-}
-
-body.desktop .q-tab .q-focus-helper {
-  width: 0%;
-  height: 0%;
-}
 </style>
 
 

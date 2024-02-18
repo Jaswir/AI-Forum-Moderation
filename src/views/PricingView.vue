@@ -3,48 +3,51 @@
     <h1 class="pricing-title">Pricing</h1>
     <div class="pricing-cards">
       <div class="card">
-        <h2 class="plan-name">Startup</h2>
-        <p class="plan-price">$28 / month</p>
-        <p class="plan-description">The essentials for when you're just getting started.</p>
+        <h2 class="plan-name">Starter</h2>
+        <p class="plan-price">$19 / month</p>
+        <p class="plan-description">Ideal for home cooks starting their culinary exploration.</p>
         <ul class="plan-features">
-          <li>2 projects</li>
-          <li>Up to 1,000 apps</li>
-          <li>Basic analytics</li>
-          <li>Email support</li>
+          <li>Identify ingredients for 5 meals per month</li>
+          <li>Access to 500-ingredient database</li>
+          <li>Recipe suggestions for up to 20 groceries</li>
+          <li>Community support and basic tips</li>
         </ul>
         <button class="billing-button">Monthly billing</button>
       </div>
       <div class="card recommended">
         <div class="ribbon">RECOMMENDED</div>
-        <h2 class="plan-name">Business</h2>
-        <p class="plan-price">$32 / month</p>
-        <p class="plan-description">For businesses looking to achieve maximum efficiency and time savings.</p>
+        <h2 class="plan-name">Professional</h2>
+        <p class="plan-price">$39 / month</p>
+        <p class="plan-description">Perfect for cooking enthusiasts improving their skills.</p>
         <ul class="plan-features">
-          <li>10 projects</li>
-          <li>Up to 10,000 apps</li>
-          <li>Advanced analytics</li>
-          <li>24-hour chat support</li>
-          <li>Channel management</li>
+          <li>Identify ingredients for 20 meals per month</li>
+          <li>Access to 2,000-ingredient database</li>
+          <li>Unlimited grocery-based recipe suggestions</li>
+          <li>Priority email and chat support</li>
+          <li>Flavor profile analysis</li>
+          <li>Exclusive cooking content</li>
         </ul>
         <button class="billing-button">Monthly billing</button>
       </div>
       <div class="card">
         <h2 class="plan-name">Enterprise</h2>
-        <p class="plan-price">$48 / month</p>
-        <p class="plan-description">For businesses looking for the maximum competitive edge and expanding their reach.</p>
+        <p class="plan-price">$99 / month</p>
+        <p class="plan-description">Designed for culinary businesses seeking a competitive edge.</p>
         <ul class="plan-features">
-          <li>Unlimited projects</li>
-          <li>Unlimited apps</li>
-          <li>Advanced analytics</li>
-          <li>5x24 dedicated support response</li>
-          <li>Channel management</li>
-          <li>Competitor analysis</li>
+          <li>Unlimited meal ingredient identification</li>
+          <li>Full ingredient database access</li>
+          <li>Customizable recipe engine</li>
+          <li>24/7 priority support with account manager</li>
+          <li>Inventory system integration</li>
+          <li>Food trend analytics</li>
+          <li>White-label app option</li>
         </ul>
         <button class="billing-button">Monthly billing</button>
       </div>
     </div>
   </section>
 </template>
+
 
 
 <script>
