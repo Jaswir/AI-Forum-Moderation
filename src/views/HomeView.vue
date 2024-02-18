@@ -1,10 +1,10 @@
 <template>
-  <div class="q-pa-md row justify-center ">
+  <div class="q-pa-md q-gutter-md row justify-center ">
 
     <div class="col-12 col-lg-7">
-      <q-card class="my-card">
+      <q-card class="full-width my-card">
 
-        <q-card-section class=" q-gutter-md ">
+        <q-card-section class="">
           <div class="text-h4">Upload Image</div>
           <div class="text-subtitle1">Upload an image of the food to get the ingredients</div>
         </q-card-section>
@@ -39,9 +39,9 @@
 
     </div>
 
-    <div class="q-pl-md col-lg-3 ">
+    <div class="col-12 col-lg-3">
       <q-card class="full-width">
-        <q-card-section class="q-gutter-md ">
+        <q-card-section class="">
 
           <p class="text-h5 text-bold">Ingredients</p>
           <!-- <q-input outlined v-model="ingredients" placeholder="Detected ingredients will appear here" readonly /> -->

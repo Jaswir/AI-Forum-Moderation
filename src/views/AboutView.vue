@@ -2,7 +2,7 @@
   <div class="q-pa-md row justify-center ">
 
     <div class="col-12 col-lg-7">
-      <q-card class="my-card">
+      <q-card class="">
 
         <q-card-section class=" q-gutter-md ">
           <div class="text-h4">Upload Image</div>
@@ -247,7 +247,7 @@ export default {
  
 <style>
 .my-card {
-  width: 100%;
+  /* width: 100%; */
 
 }
 </style>
