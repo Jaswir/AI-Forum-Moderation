@@ -46,8 +46,15 @@
   </section>
 </template>
 
-<script>
 
+<script>
+export default {
+  methods: {
+    submitForm() {
+      // Your form submission logic here
+    }
+  }
+}
 </script>
 
 <style>
