@@ -28,11 +28,11 @@
             <q-btn @click="submit" class="text-sm font-medium bg-primary text-primary-foreground" color="primary"
               label="Submit" />
           </div>
-          <!-- <div class="q-pa-md">
-            <label class="font-medium text-sm" for="ingredients">Ingredients</label>
-            <q-input outlined v-model="ingredients" class="q-pa-xs" placeholder="Detected ingredients will appear here"
-              readonly />
-          </div> -->
+          <div class="q-pa-md">
+            <label class="font-medium text-sm" for="ingredients">Healthiness</label>
+            <q-input outlined v-model="healthiness" class="q-pa-xs" placeholder="Health Recommendation will appear here"
+              readonly autogrow />
+          </div>
 
         </div>
       </q-card>
@@ -77,6 +77,10 @@
           </div>
         </q-card-section>
       </q-card>
+   
+      <q-card>
+
+      </q-card>
     </div>
 
 
@@ -94,9 +98,7 @@ export default {
     const imageUrl = ref('');
     const ingredients_ref = ref(['']);
     const total_calories_ref = ref(0);
-    const micro_nutrients_ref = ref({
-
-    });
+    const micro_nutrients_ref = ref({});
     const quantifications = ref(
       {
         "Cholesterol": "mg",
@@ -111,6 +113,7 @@ export default {
       }
     );
     const base64_image = ref('');
+    const healthiness = ref('');
 
 
 
@@ -164,8 +167,8 @@ export default {
 
 
 
-      // Make the POST request using Axios
-      axios.post('https://jobmatch-gamma.vercel.app/api/nutrition/get_ingredients_from_image_base64',
+      // Gets ingrëdients, etc
+      axios.post('https://nutritious-backend.vercel.app/api/nutrition/get_ingredients_from_image_base64',
         payload, { headers })
         .then(response => {
           console.log('Response:', response.data);
@@ -202,6 +205,7 @@ export default {
           ingredients_ref.value = ingredients
           total_calories_ref.value = total_calories
           micro_nutrients_ref.value = micro_nutrients
+          getHealthiness(ingredients, total_calories, micro_nutrients)
 
 
         })
@@ -211,11 +215,48 @@ export default {
 
     }
 
+    const getHealthiness = () => {
+
+      const data = {
+        model: "gpt-3.5-turbo-0125",
+        messages: [
+          {
+            role: "system",
+            content: "You are a Nutritional Expert!"
+          },
+          {
+            role: "user",
+            content: `How healthy is this food, here is some information: Calories: ${total_calories_ref.value}
+            Ingredients: ${ingredients_ref.value} Micro Nutrients: ${micro_nutrients_ref.value}
+            `
+          }
+        ]
+      };
+
+      // Show Healthiness
+      axios.post('https://api.openai.com/v1/chat/completions', data, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${import.meta.env.VITE_OPENAI_API_KEY}`
+        }
+      })
+        .then(response => {
+          let res = response.data.choices[0].message.content
+          console.log(res);
+          healthiness.value = res
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+
+    }
+
+
     return {
       image, imageUrl, ingredients_ref,
       total_calories_ref,
-      micro_nutrients_ref, handleUpload, submit
-      , quantifications
+      micro_nutrients_ref, handleUpload, submit, getHealthiness,
+      quantifications, healthiness
     }
   }
 }
