@@ -60,7 +60,7 @@
           </q-list>
 
 
-       
+
 
           <div class="space-y-2">
             <p class="text-h5 text-bold">Micro Nutrients</p>
@@ -70,7 +70,7 @@
                   <q-item-label>• {{ key }}:</q-item-label>
                 </q-item-section>
                 <q-item-section>
-                  <q-item-label>{{ value }}</q-item-label>
+                  <q-item-label>{{ value.toFixed(2) }} {{ quantifications[key] }}</q-item-label>
                 </q-item-section>
               </q-item>
             </q-list>
@@ -95,16 +95,21 @@ export default {
     const ingredients_ref = ref(['']);
     const total_calories_ref = ref(0);
     const micro_nutrients_ref = ref({
-      "cholesterol": 0,
-      "dietary_fiber": 0,
-      "potassium": 0,
-      "protein": 0,
-      "saturated_fat": 0,
-      "sodium": 0,
-      "sugars": 0,
-      "carbs": 0,
-      "total_fat": 0,
+
     });
+    const quantifications = ref(
+      {
+        "Cholesterol": "mg",
+        "Total_fat": "g",
+        "Saturated_fat": "g",
+        "Dietary_fiber": "g",
+        "Protein": "g",
+        "Sugars": "g",
+        "Carbs": "g",
+        "Sodium": "mg",
+        "Potassium": "mg",
+      }
+    );
     const base64_image = ref('');
 
 
@@ -146,19 +151,18 @@ export default {
       let ingredients = []
       let total_calories = 0
       let micro_nutrients = {
-        "cholesterol": 0,
-        "dietary_fiber": 0,
-        "potassium": 0,
-        "protein": 0,
-        "saturated_fat": 0,
-        "sodium": 0,
-        "sugars": 0,
-        "carbs": 0,
-        "total_fat": 0,
-        "serving_quantity": 0,
+        "Cholesterol": 0,
+        "Total_fat": 0,
+        "Saturated_fat": 0,
+        "Dietary_fiber": 0,
+        "Protein": 0,
+        "Sugars": 0,
+        "Carbs": 0,
+        "Sodium": 0,
+        "Potassium": 0,
       }
 
-      
+
 
       // Make the POST request using Axios
       axios.post('https://jobmatch-gamma.vercel.app/api/nutrition/get_ingredients_from_image_base64',
@@ -176,20 +180,24 @@ export default {
             const calories = data.ingredients[i].calories;
             total_calories += calories
 
-            micro_nutrients.cholesterol += ingredient.cholesterol !== null ? ingredient.cholesterol : 0;
-            micro_nutrients.dietary_fiber += ingredient.dietary_fiber !== null ? ingredient.dietary_fiber : 0;
-            micro_nutrients.potassium += ingredient.potassium !== null ? ingredient.potassium : 0;
-            micro_nutrients.protein += ingredient.protein !== null ? ingredient.protein : 0;
-            micro_nutrients.saturated_fat += ingredient.saturated_fat !== null ? ingredient.saturated_fat : 0;
-            micro_nutrients.sodium += ingredient.sodium !== null ? ingredient.sodium : 0;
-            micro_nutrients.sugars += ingredient.sugars !== null ? ingredient.sugars : 0;
-            micro_nutrients.carbs += ingredient.total_carbohydrate !== null ? ingredient.total_carbohydrate : 0;
-            micro_nutrients.total_fat += ingredient.total_fat !== null ? ingredient.total_fat : 0;
+            micro_nutrients.Cholesterol += ingredient.cholesterol !== null ? ingredient.cholesterol : 0;
+            micro_nutrients.Dietary_fiber += ingredient.dietary_fiber !== null ? ingredient.dietary_fiber : 0;
+            micro_nutrients.Potassium += ingredient.potassium !== null ? ingredient.potassium : 0;
+            micro_nutrients.Protein += ingredient.protein !== null ? ingredient.protein : 0;
+            micro_nutrients.Saturated_fat += ingredient.saturated_fat !== null ? ingredient.saturated_fat : 0;
+            micro_nutrients.Sodium += ingredient.sodium !== null ? ingredient.sodium : 0;
+            micro_nutrients.Sugars += ingredient.sugars !== null ? ingredient.sugars : 0;
+            micro_nutrients.Carbs += ingredient.total_carbohydrate !== null ? ingredient.total_carbohydrate : 0;
+            micro_nutrients.Total_fat += ingredient.total_fat !== null ? ingredient.total_fat : 0;
           }
 
           console.log("Ingredients: ", ingredients)
           console.log("Total Calories: ", total_calories)
           console.log("Micro Nutrients: ", micro_nutrients)
+
+          // ingredients = ingredients.map(ingredients => {
+          //   return ingredients.charAt(0).toUpperCase() + ingredients.slice(1);
+          // });
 
           ingredients_ref.value = ingredients
           total_calories_ref.value = total_calories
@@ -207,6 +215,7 @@ export default {
       image, imageUrl, ingredients_ref,
       total_calories_ref,
       micro_nutrients_ref, handleUpload, submit
+      , quantifications
     }
   }
 }
