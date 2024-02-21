@@ -6,7 +6,7 @@
         <q-btn flat round dense icon="menu" class="q-mr-sm xs">
           <q-menu>
             <q-list style="min-width: 100px">
-              <q-item clickable v-close-popup to="/home">
+              <q-item clickable v-close-popup to="/">
                 <q-item-section>Home</q-item-section>
               </q-item>
               <q-item clickable v-close-popup to="/pricing">
