@@ -168,7 +168,7 @@ export default {
 
 
       // Gets ingrëdients, etc
-      axios.post('https://nutritious-backend.vercel.app/api/nutrition/get_ingredients_from_image_base64',
+      axios.post('https://jobmatch-gamma.vercel.app/api/nutrition/get_ingredients_from_image_base64',
         payload, { headers })
         .then(response => {
           console.log('Response:', response.data);
