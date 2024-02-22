@@ -31,7 +31,7 @@
           <div class="q-pa-md">
             <label class="font-medium text-sm" for="ingredients">Healthiness</label>
             <q-input outlined v-model="healthiness" class="q-pa-xs" placeholder="Health Recommendation will appear here"
-              readonly autogrow />
+               autogrow />
           </div>
 
         </div>

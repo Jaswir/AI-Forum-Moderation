@@ -6,31 +6,33 @@
       <q-card class="card q-pa-md column" style="max-width: 400px;">
 
         <h2 class="text-h5">Starter</h2>
-        <p class="text-primary text-h6">$19 / month</p>
-        <p class="text-grey">Ideal for home cooks and food enthusiasts.</p>
+        <p class="text-primary text-h6">Supported by ads</p>
+        <p class="text-grey">Basic features for individuals.</p>
         <ul class="list-padding">
-          <li>Identify ingredients for up to 5 meals per month</li>
-          <li>Access to 500 common ingredients database</li>
-          <li>Recipe suggestions based on 20 groceries</li>
-          <li>Community support and basic app features</li>
+          <li>Identify foods</li>
+          <li>Estimate calories</li>
+          <li>View basic nutritional info</li>
+          <li>Receive limited recipe suggestions</li>
         </ul>
         <q-space />
         <q-btn class="q-mt-md" color="primary" @click="submitForm">Get Started</q-btn>
       </q-card>
-      <!-- Professional Plan -->
+
+
+      <!-- Premium Plan -->
       <q-card class="card recommended q-pa-md column" style="max-width: 400px;">
 
         <q-badge color="teal" class="ribbon">RECOMMENDED</q-badge>
-        <h2 class="text-h5">Professional</h2>
-        <p class="text-primary text-h6">$39 / month</p>
-        <p class="text-grey">Perfect for cooking professionals and frequent users.</p>
+        <h2 class="text-h5">Premium</h2>
+        <p class="text-primary text-h6">$9.99 / month</p>
+        <p class="text-grey">Full features for enthusiasts.</p>
         <ul class="list-padding">
-          <li>Identify ingredients for up to 20 meals per month</li>
-          <li>Access to 2,000 ingredients including rare items</li>
-          <li>Unlimited grocery inputs for recipes</li>
-          <li>Priority support and professional content</li>
+          <li>Personalized dietary recommendations</li>
+          <li>Fitness tracker integration</li>
+          <li>Ad-free experience</li>
+          <li>Priority support</li>
+          <li>Advanced nutritional analysis</li>
         </ul>
-        <q-space />
         <q-btn class="q-mt-md" color="primary" @click="submitForm">Get Started</q-btn>
 
       </q-card>
@@ -38,22 +40,22 @@
       <q-card class="card q-pa-md column" style="max-width: 400px;">
 
         <h2 class="text-h5">Enterprise</h2>
-        <p class="text-primary text-h6">$99 / month</p>
-        <p class="text-grey">Designed for culinary businesses and food industry professionals.</p>
+        <p class="text-primary text-h6">Custom pricing</p>
+        <p class="text-grey">Custom solutions for businesses.</p>
         <ul class="list-padding">
-          <li>Unlimited meal ingredient identification</li>
-          <li>Full ingredient database access</li>
-          <li>Inventory management system integration</li>
-          <li>24/7 dedicated support and account manager</li>
-          <li>Advanced analytics on food trends</li>
-          <li>White-label app option</li>
+          <li>API access</li>
+          <li>Customizable solutions</li>
+          <li>Enhanced analytics</li>
+          <li>Scalable infrastructure</li>
+          <li>Dedicated account manager</li>
         </ul>
-        <q-btn class="q-mt-md" color="primary" @click="submitForm">Get Started</q-btn>
+        <q-btn class="q-mt-md" color="primary" @click="submitForm">Contact Sales</q-btn>
 
       </q-card>
     </div>
   </q-page>
 </template>
+
 
 <script>
 export default {
