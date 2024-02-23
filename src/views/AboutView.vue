@@ -11,7 +11,7 @@
         <q-card class="full-width">
           <q-card-section>
             <h2 class="text-h6">Jaswir Raghoe</h2>
-            <p>This is the content of card 1.</p>
+            <p>Team Lead, Front end and AI Developer</p>
           </q-card-section>
         </q-card>
       </div>
@@ -19,7 +19,7 @@
         <q-card class="full-width">
           <q-card-section>
             <h2 class="text-h6">William Bohm</h2>
-            <p>This is the content of card 2.</p>
+            <p>Backend Developer</p>
           </q-card-section>
         </q-card>
       </div>
@@ -30,7 +30,7 @@
         <q-card class="full-width">
           <q-card-section>
             <h2 class="text-h6">Muhammed Bilal</h2>
-            <p>This is the content of card 3.</p>
+            <p>Market Research</p>
           </q-card-section>
         </q-card>
       </div>
@@ -38,7 +38,7 @@
         <q-card class="full-width">
           <q-card-section>
             <h2 class="text-h6">Ram The Goat</h2>
-            <p>This is the content of card 4.</p>
+            <p>Helped with Ideas</p>
           </q-card-section>
         </q-card>
       </div>

@@ -217,6 +217,7 @@ export default {
 
     const getHealthiness = () => {
 
+      console.log("API KEY", import.meta.env.VITE_OPENAI_API_KEY)
       const data = {
         model: "gpt-3.5-turbo-0125",
         messages: [
@@ -226,7 +227,7 @@ export default {
           },
           {
             role: "user",
-            content: `How healthy is this food, here is some information: Calories: ${total_calories_ref.value}
+            content: `How healthy is this food, Answer in 1 to 3 sentences\n  Calories: ${total_calories_ref.value}
             Ingredients: ${ingredients_ref.value} Micro Nutrients: ${micro_nutrients_ref.value}
             `
           }
@@ -235,6 +236,7 @@ export default {
 
       // Show Healthiness
       axios.post('https://api.openai.com/v1/chat/completions', data, {
+       
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${import.meta.env.VITE_OPENAI_API_KEY}`
