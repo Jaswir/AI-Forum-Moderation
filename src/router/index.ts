@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import SymptomSubmissionView from '../views/SymptomSubmissionView.vue'
-import IncomingPatientsView from '../views/IncomingPatientsView.vue'
+import HomeView from '../views/HomeView.vue'
 import PricingView from '../views/PricingView.vue'
 import ContactView from '../views/ContactView.vue'
 import AboutView from '../views/AboutView.vue'
@@ -8,13 +7,13 @@ import AboutView from '../views/AboutView.vue'
 const routes = [
     {
         path: '/',
-        name: 'SymptomSubmissionView',
-        component: SymptomSubmissionView,
+        name: 'HomeView',
+        component: HomeView,
     },
     {
-        path: '/incoming-patients',
-        name: 'IncomingPatientsView',
-        component: IncomingPatientsView,
+        path: '/home',
+        name: 'HomeView',
+        component: HomeView,
     },
     {
         path: '/pricing',

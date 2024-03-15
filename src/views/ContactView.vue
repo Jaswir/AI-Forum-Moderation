@@ -1,64 +1,65 @@
 <template>
-    <div class="q-pa-md q-gutter-md row justify-center">
-  
+    <div class="py-4 px-4 md:gap-4 flex flex-row justify-center flex-wrap">
   
       <!-- Contact Form Section -->
-      <div class="col-12 col-lg-7">
-        <q-card class="full-width">
-          <q-card-section>
+      <div class="w-full lg:w-7/12">
+        <div class="w-full bg-white rounded-lg shadow">
+          <div class="p-6">
             <div class="space-y-2">
-              <p class="text-h4 text-bold tracking-tighter">Contact us</p>
-              <p class="text-grey">We'll get back to you as soon as possible.</p>
+              <p class="text-4xl font-bold tracking-tight">Contact us</p>
+              <p class="text-gray-600">We'll get back to you as soon as possible.</p>
             </div>
-            <div class="space-y-4">
-              <div class="row">
-                <div class="col-12 col-sm-6 space-y-2">
-                  <label class="q-mb-xs">First name</label>
-                  <q-input v-model="firstName" placeholder="Enter your first name" dense />
+            <div class="space-y-4 mt-4">
+              <div class="flex flex-wrap -mx-2">
+                <div class="w-full sm:w-1/2 px-2 space-y-2">
+                  <label class="mb-1 block">First name</label>
+                  <input v-model="firstName" placeholder="Enter your first name" class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:border-blue-300" />
                 </div>
-                <div class="col-12 col-sm-6 space-y-2">
-                  <label class="q-mb-xs">Last name</label>
-                  <q-input v-model="lastName" placeholder="Enter your last name" dense />
+                <div class="w-full sm:w-1/2 px-2 space-y-2">
+                  <label class="mb-1 block">Last name</label>
+                  <input v-model="lastName" placeholder="Enter your last name" class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:border-blue-300" />
                 </div>
               </div>
               <div class="space-y-2">
-                <label class="q-mb-xs">Email</label>
-                <q-input v-model="email" placeholder="Enter your email" dense />
+                <label class="mb-1 block">Email</label>
+                <input v-model="email" placeholder="Enter your email" class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:border-blue-300" />
               </div>
               <div class="space-y-2">
-                <label class="q-mb-xs">Message</label>
-                <q-input v-model="message" type="textarea" placeholder="Enter your message" dense />
+                <label class="mb-1 block">Message</label>
+                <textarea v-model="message" placeholder="Enter your message" class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:border-blue-300"></textarea>
               </div>
-              <q-btn @click="sendMessage" color="primary" label="Send message" dense class="q-mt-md" />
+              <button @click="sendMessage" class="mt-4 bg-[#0A065D] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Send message</button>
             </div>
-          </q-card-section>
-        </q-card>
+          </div>
+        </div>
       </div>
+  
       <!-- Contact Information Section -->
-      <div class="col-12 col-lg-3">
-        <q-card class="full-width bg-green-1">
-          <q-card-section class="">
+      <div class="w-full lg:w-3/12">
+        <div class="w-full bg-[#F8F1F1] rounded-lg shadow">
+          <div class="p-6">
             <div class="space-y-2">
-              <p class="text-h5 text-bold">Contact information</p>
-              <p class="text-grey">Reach out to us using the information below.</p>
+              <p class="text-xl font-bold">Contact information</p>
+              <p class="text-gray-600">Reach out to us using the information below.</p>
             </div>
-            <div class="">
-              <div class="">
-                <p class="text-subtitle  text-bold">Email</p>
+            <div>
+              <div>
+                <p class="text-lg font-bold">Email</p>
                 <p>jaswirraghoe@gmail.com</p>
               </div>
               <div class="space-y-2">
-                <p class="text-subtitle text-bold">Phone</p>
+                <p class="text-lg font-bold">Phone</p>
                 <p>(415) 123-4567</p>
               </div>
               <div class="space-y-2">
-                <p class="text-subtitle-2 text-bold">Address</p>
+                <p class="text-lg font-bold">Address</p>
                 <p>33 Shields St San Francisco, California(CA), 94132</p>
               </div>
             </div>
-          </q-card-section>
-        </q-card>
+          </div>
+        </div>
       </div>
+  
     </div>
   </template>
   

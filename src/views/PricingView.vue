@@ -1,108 +1,81 @@
 <template>
-    <q-page class="q-pa-md pricing-section">
-      <h1 class="q-pa-md text-h4 text-center">Pricing</h1>
-      <div class="q-gutter-md row justify-center">
-        <!-- Starter Plan -->
-        <q-card class="card q-pa-md column" style="max-width: 400px;">
-  
-          <h2 class="text-h5">Starter</h2>
-          <p class="text-primary text-h6">Supported by ads</p>
-          <p class="text-grey">Basic features for individuals.</p>
-          <ul class="list-padding">
-            <li>Identify foods</li>
-            <li>Estimate calories</li>
-            <li>View basic nutritional info</li>
-            <li>Receive limited recipe suggestions</li>
-          </ul>
-          <q-space />
-          <q-btn class="q-mt-md" color="primary" @click="submitForm">Get Started</q-btn>
-        </q-card>
-  
-  
-        <!-- Premium Plan -->
-        <q-card class="card recommended q-pa-md column" style="max-width: 400px;">
-  
-          <q-badge color="teal" class="ribbon">RECOMMENDED</q-badge>
-          <h2 class="text-h5">Premium</h2>
-          <p class="text-primary text-h6">$9.99 / month</p>
-          <p class="text-grey">Full features for enthusiasts.</p>
-          <ul class="list-padding">
-            <li>Personalized dietary recommendations</li>
-            <li>Fitness tracker integration</li>
-            <li>Ad-free experience</li>
-            <li>Priority support</li>
-            <li>Advanced nutritional analysis</li>
-          </ul>
-          <q-btn class="q-mt-md" color="primary" @click="submitForm">Get Started</q-btn>
-  
-        </q-card>
-        <!-- Enterprise Plan -->
-        <q-card class="card q-pa-md column" style="max-width: 400px;">
-  
-          <h2 class="text-h5">Enterprise</h2>
-          <p class="text-primary text-h6">Custom pricing</p>
-          <p class="text-grey">Custom solutions for businesses.</p>
-          <ul class="list-padding">
-            <li>API access</li>
-            <li>Customizable solutions</li>
-            <li>Enhanced analytics</li>
-            <li>Scalable infrastructure</li>
-            <li>Dedicated account manager</li>
-          </ul>
-          <q-btn class="q-mt-md" color="primary" @click="submitForm">Contact Sales</q-btn>
-  
-        </q-card>
-      </div>
-    </q-page>
-  </template>
-  
-  
-  <script>
-  export default {
+    <div class="bg-white p-8">
+        <h2 class="text-3xl font-bold text-center mb-8">Pricing</h2>
+        <div class="flex justify-center space-x-4">
+            <div class="rounded-lg border bg-card text-card-foreground shadow-sm w-[300px]" data-v0-t="card">
+                <div class="flex flex-col space-y-1.5 p-6">
+                    <h3 class="text-2xl font-semibold whitespace-nowrap leading-none tracking-tight">Starter</h3>
+                    <p class="text-sm text-muted-foreground">Supported by ads</p>
+                </div>
+                <div class="p-6">
+                    <ul class="list-disc space-y-2 pl-5">
+                        <li>Identify foods</li>
+                        <li>Estimate calories</li>
+                        <li>View basic nutritional info</li>
+                        <li>Receive limited recipe suggestions</li>
+                    </ul>
+                </div>
+                <div class="items-center p-6 flex justify-center">
+                    <button
+                        class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-primary-foreground h-10 px-4 py-2 w-full bg-green-500 hover:bg-green-600">
+                        Get Started
+                    </button>
+                </div>
+            </div>
+            <div class="rounded-lg text-card-foreground shadow-sm w-[300px] bg-green-100 border-2 border-green-500"
+                data-v0-t="card">
+                <div class="flex flex-col space-y-1.5 p-6">
+                    <h3 class="text-2xl font-semibold whitespace-nowrap leading-none tracking-tight">Premium</h3>
+                    <p class="text-sm text-muted-foreground">$9.99 / month</p>
+                  
+                </div>
+                <div class="p-6">
+                    <ul class="list-disc space-y-2 pl-5">
+                        <li>Personalized dietary recommendations</li>
+                        <li>Fitness tracker integration</li>
+                        <li>Ad-free experience</li>
+                        <li>Priority support</li>
+                        <li>Advanced nutritional analysis</li>
+                    </ul>
+                </div>
+                <div class="items-center p-6 flex justify-center">
+                    <button
+                        class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-primary-foreground h-10 px-4 py-2 w-full bg-green-500 hover:bg-green-600">
+                        Get Started
+                    </button>
+                </div>
+            </div>
+            <div class="rounded-lg border bg-card text-card-foreground shadow-sm w-[300px]" data-v0-t="card">
+                <div class="flex flex-col space-y-1.5 p-6">
+                    <h3 class="text-2xl font-semibold whitespace-nowrap leading-none tracking-tight">Enterprise</h3>
+                    <p class="text-sm text-muted-foreground">Custom pricing</p>
+                </div>
+                <div class="p-6">
+                    <ul class="list-disc space-y-2 pl-5">
+                        <li>API access</li>
+                        <li>Customizable solutions</li>
+                        <li>Enhanced analytics</li>
+                        <li>Scalable infrastructure</li>
+                        <li>Dedicated account manager</li>
+                    </ul>
+                </div>
+                <div class="items-center p-6 flex justify-center">
+                    <button
+                        class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-primary-foreground h-10 px-4 py-2 w-full bg-green-500 hover:bg-green-600">
+                        Contact Sales
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
     methods: {
-      submitForm() {
-        // Your form submission logic here
-      }
+        submitForm() {
+            // Your form submission logic here
+        }
     }
-  }
-  </script>
-  
-  <style>
-  .list-padding li {
-    padding: 5px 0;
-    /* Adjust padding as needed */
-  }
-  
-  .card {
-    background-color: #e6e6e6;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .ribbon {
-    position: absolute;
-    top: -8px;
-    right: -8px;
-  }
-  
-  .text-h4 {
-    font-size: 24px;
-  }
-  
-  .text-h5 {
-    font-size: 20px;
-  }
-  
-  .text-h6 {
-    font-size: 16px;
-  }
-  
-  .text-primary {
-    color: #28a745;
-  }
-  
-  .text-grey {
-    color: #555;
-  }
-  </style>
-  
+}
+</script>

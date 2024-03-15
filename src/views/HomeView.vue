@@ -189,4 +189,4 @@ export default {
   font-size: 16px;
 
 }
-</style>
+</style>./HomeView.vue
