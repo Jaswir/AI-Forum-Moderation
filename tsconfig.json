@@ -1,16 +1,4 @@
 {
-<<<<<<< HEAD
-  "files": [],
-  "references": [
-    {
-      "path": "./tsconfig.node.json"
-    },
-    {
-      "path": "./tsconfig.app.json"
-    }
-  ]
-}
-=======
   "compilerOptions": {
     "target": "ES2020",
     "useDefineForClassFields": true,
@@ -36,4 +24,3 @@
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
->>>>>>> a5b07a0e83c2f205d771093942f9796a446dba20
