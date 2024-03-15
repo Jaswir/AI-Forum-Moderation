@@ -1,4 +1,5 @@
 import { createApp } from 'vue'
+<<<<<<< HEAD
 import App from './App.vue'
 import router from './router'
 
@@ -19,5 +20,12 @@ createApp(App)
         notify:{}
     }
 })
+=======
+import './style.css'
+import App from './App.vue'
+import router from './router'
+
+createApp(App)
+>>>>>>> a5b07a0e83c2f205d771093942f9796a446dba20
 .use(router)
 .mount('#app')

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # frontend
 
 This template should help get you started developing with Vue 3 in Vite.
@@ -38,3 +39,9 @@ npm run dev
 ```sh
 npm run build
 ```
+=======
+# Healthomatic
+
+npm install
+npm run dev
+>>>>>>> a5b07a0e83c2f205d771093942f9796a446dba20
