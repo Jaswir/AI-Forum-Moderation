@@ -17,12 +17,12 @@
                 </div>
                 <div class="items-center p-6 flex justify-center">
                     <button
-                        class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-primary-foreground h-10 px-4 py-2 w-full bg-green-500 hover:bg-green-600">
+                        class="text-white inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-primary-foreground h-10 px-4 py-2 w-full  bg-[#0A065D] hover:bg-[#241e89]">
                         Get Started
                     </button>
                 </div>
             </div>
-            <div class="rounded-lg text-card-foreground shadow-sm w-[300px] bg-green-100 border-2 border-green-500"
+            <div class="rounded-lg text-card-foreground shadow-sm w-[300px] bg-[#F8F1F1] border-2 border-[#A3816A]"
                 data-v0-t="card">
                 <div class="flex flex-col space-y-1.5 p-6">
                     <h3 class="text-2xl font-semibold whitespace-nowrap leading-none tracking-tight">Premium</h3>
@@ -40,7 +40,7 @@
                 </div>
                 <div class="items-center p-6 flex justify-center">
                     <button
-                        class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-primary-foreground h-10 px-4 py-2 w-full bg-green-500 hover:bg-green-600">
+                        class="text-white inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-primary-foreground h-10 px-4 py-2 w-full  bg-[#0A065D] hover:bg-[#241e89]">
                         Get Started
                     </button>
                 </div>
@@ -61,7 +61,7 @@
                 </div>
                 <div class="items-center p-6 flex justify-center">
                     <button
-                        class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-primary-foreground h-10 px-4 py-2 w-full bg-green-500 hover:bg-green-600">
+                        class="text-white inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-primary-foreground h-10 px-4 py-2 w-full bg-[#0A065D] hover:bg-[#241e89]">
                         Contact Sales
                     </button>
                 </div>
