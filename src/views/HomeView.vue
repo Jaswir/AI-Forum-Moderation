@@ -46,7 +46,7 @@
               <div class="p-3">
                 <div
                   class="inline-flex items-center rounded-full whitespace-nowrap border px-2.5 py-0.5 w-fit text-xs font-semibold transition-colors border-transparent text-secondary-foreground hover:bg-secondary/80 mb-2 text-white"
-                  :style="{backgroundColor: label_map['Positive']}">
+                  :style="{ backgroundColor: label_map['Positive'] }">
                   Positive
                 </div>
                 <p>User1: Wow that's an amazing idea!</p> <!-- Hardcoded message -->
@@ -216,21 +216,16 @@ export default {
     async function addMessage() {
       console.log("added message")
       this.addedMessages.push(`You: ${inputContent.value}`);
-      inputContent.value = ''
 
+      // let api_url = "https://mod-guard-cqd1w4ft6-bilals-projects-972f3150.vercel.app/"
 
-
-
-
-      // let api_url = "https://healthomatic-psi.vercel.app"
-      // console.log("API URL:", api_url)
-      // api_url = 'http://127.0.0.1:8000'
-
-      // axios.get(`${api_url}/patients/${priority}`)
+      // axios.get(`${api_url}/single_message/${inputContent.value}`)
       //   .then(response => {
-      //     if (priority === 'Emergency') {
-      //       emergency_patients.value = response.data;
-      //     }
+      //     let res = response.data;
+      //     description.value = res.description
+      //     state_of_mind.value = res.stateofmind
+      //     inputContent.value = ''
+
       //   })
       //   .catch(error => {
       //     console.error('Error fetching patients:', error);
