@@ -12,6 +12,8 @@
           About</router-link>
         <router-link to="/contact" class="text-white block hover:text-gray-200">
           Contact</router-link>
+          <router-link to="/landing" class="text-white block hover:text-gray-200">
+          Landing Page</router-link>
 
       </div>
     </div>
