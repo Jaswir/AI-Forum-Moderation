@@ -99,7 +99,8 @@
               <div class="p-3">
 
                 <div
-                  class="text-white inline-flex items-center rounded-full whitespace-nowrap border px-2.5 py-0.5 w-fit text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent text-secondary-foreground hover:bg-secondary/80 mb-2 bg-[#ef4444]">
+                  class="text-white inline-flex items-center rounded-full whitespace-nowrap border px-2.5 py-0.5 w-fit text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent text-secondary-foreground hover:bg-secondary/80 mb-2"
+                  :style="{ backgroundColor: label_map[state_of_mind]}">
                   {{ state_of_mind }}
                 </div>
                 <p>{{ message }}</p>
@@ -161,11 +162,20 @@ export default {
 
     const addedMessages = ref([])
 
-    const state_of_mind = ref('toxic')
+    const state_of_mind = ref('Toxic')
     const description = ref('this is not good! ')
+    const label_map = ref(
+      {
+        "Toxic": "#fcca58",
+        "Sexist": "#d73044",
+        "Racist": "#4a71ad",
+        "Positive": "#81ebb2"
+      }
+    )
 
     const inputContent = ref('')
     const moderate_view = ref(false)
+
 
     async function addMessage() {
       console.log("added message")
@@ -194,6 +204,16 @@ export default {
     async function moderateForum() {
       console.log("Shows labels and descriptions")
       this.moderate_view = true
+
+      let data = {
+        comment: "I hate jews",
+        stateofmind: "Racist",
+        description: "This comment expresses hatred towards Jewish people, which is an antisemitic view. Hating an entire group based on their religion or ethnicity is discriminatory and hateful."
+      }
+
+
+      this.state_of_mind = data.stateofmind
+      this.description = data.description
     }
 
 
@@ -201,7 +221,7 @@ export default {
       emergency_patients, messages, inputContent, moderate_view,
       moderateForum,
       addedMessages,
-      state_of_mind, description,
+      state_of_mind, description, label_map,
       addMessage,
     }
   }
