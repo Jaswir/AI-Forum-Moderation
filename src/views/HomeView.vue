@@ -108,6 +108,21 @@
                   idea. The tone is positive and supportive.</p>
               </div>
             </div>
+
+            <div class="rounded-lg border bg-card text-card-foreground shadow-sm w-full" data-v0-t="card"
+              v-for="(message, index) in addedMessages" :key="index">
+              <div class="p-3">
+
+                <div
+                  class="text-white inline-flex items-center rounded-full whitespace-nowrap border px-2.5 py-0.5 w-fit text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent text-secondary-foreground hover:bg-secondary/80 mb-2"
+                  :style="{ backgroundColor: label_map[state_of_mind] }">
+                  {{ state_of_mind }}
+                </div>
+                <p>{{ message }}</p>
+                <p class="text-sm text-gray-600">{{ description }}</p>
+
+              </div>
+            </div>
           </div>
         </main>
       </div>
@@ -121,13 +136,6 @@
             </div>
           </div>
 
-          <div class="message-card" v-for="(message, index) in addedMessages" :key="index">
-
-            <div class="border rounded-lg shadow-md p-4 pl-8">
-              {{ message }}
-            </div>
-
-          </div>
         </div>
       </div>
 
@@ -205,19 +213,30 @@ export default {
 
     async function addMessage() {
       console.log("added message")
-      this.addedMessages.push(`You: ${inputContent.value}`);
+      let input = inputContent.value
+      inputContent.value = ''
+      this.addedMessages.push(`You: ${input}`);
 
-      let api_url = "https://mod-guard-snowy.vercel.app/"
+      let api_url = "https://mod-guard-ai-backend.vercel.app"
 
 
       console.log("DOing api call")
-      axios.get(`${api_url}/single_message/${inputContent.value}`)
+      await axios.get(`${api_url}/single_message/${input}`)
         .then(response => {
           let res = response.data;
-          console.log(respone.data)
+          console.log(response.data)
           description.value = res.description
           state_of_mind.value = res.stateofmind
-          inputContent.value = ''
+
+          if (res.stateofmind === 'Positive') {
+            console.log("Added to results, cause", res.stateofmind)
+            this.result_messages.push(`You: ${input}`)
+          }
+          else{
+            this.result_messages.push(`comment has been deleted by moderator`)
+          }
+
+
 
         })
         .catch(error => {
@@ -231,15 +250,6 @@ export default {
         console.log("Shows labels and descriptions")
 
         this.view = 'moderate'
-
-        let data = {
-          comment: "I hate jews",
-          stateofmind: "Racist",
-          description: "This comment expresses hatred towards Jewish people, which is an antisemitic view. Hating an entire group based on their religion or ethnicity is discriminatory and hateful."
-        }
-
-        this.state_of_mind = data.stateofmind
-        this.description = data.description
 
       }
 

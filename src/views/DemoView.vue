@@ -220,7 +220,7 @@ export default {
             let api_url = "https://mod-guard-snowy.vercel.app/"
 
 
-            console.log("DOing api call")
+            console.log("Doing api call")
             axios.get(`${api_url}/single_message/${inputContent.value}`)
                 .then(response => {
                     let res = response.data;
@@ -228,6 +228,10 @@ export default {
                     description.value = res.description
                     state_of_mind.value = res.stateofmind
                     inputContent.value = ''
+
+                    if (res.stateofmind !== 'Positive') {
+                        this.addedMessages.pop()
+                    }
 
                 })
                 .catch(error => {
