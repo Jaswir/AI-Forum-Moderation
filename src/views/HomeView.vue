@@ -154,7 +154,8 @@
       <button
         class="mt-4 bg-[#0A065D] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
         @click="moderateForum">
-        {{ view === 'start' ? 'Moderate Forum' : 'Get Results' }}
+        {{ view === 'start' ? 'Moderate Forum' : (view === 'moderate' ? 'Get Results' : 'Try Again') }}
+
       </button>
     </div>
 
@@ -255,6 +256,10 @@ export default {
         console.log("Getting Results")
         this.view = 'result'
         this.messages = this.result_messages
+      }
+
+      else if(this.view == 'result'){
+        window.location.reload()
       }
     }
 
