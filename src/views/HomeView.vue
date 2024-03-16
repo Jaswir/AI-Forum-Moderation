@@ -50,7 +50,9 @@
                   Positive
                 </div>
                 <p>{{ messages[0] }}</p>
-                <p class="text-sm text-gray-600">The comment is encouraging and supportive, telling the person not to be disheartened because they have more knowledge and expertise compared to others their age. It is a positive and uplifting message.
+                <p class="text-sm text-gray-600">The comment is encouraging and supportive, telling the person not to be
+                  disheartened because they have more knowledge and expertise compared to others their age. It is a
+                  positive and uplifting message.
                 </p>
               </div>
             </div>
@@ -75,7 +77,9 @@
                   Toxic
                 </div>
                 <p>{{ messages[2] }}</p>
-                <p class="text-sm text-gray-600">The comment uses insulting language to call the author a 'waste of space', which is a toxic and demeaning thing to say about someone. The tone is hostile and dismissive.</p>
+                <p class="text-sm text-gray-600">The comment uses insulting language to call the author a 'waste of
+                  space', which is a toxic and demeaning thing to say about someone. The tone is hostile and dismissive.
+                </p>
               </div>
             </div>
             <div class="rounded-lg border bg-card text-card-foreground shadow-sm w-full" data-v0-t="card">
@@ -86,7 +90,9 @@
                   Toxic
                 </div>
                 <p>{{ messages[3] }}</p>
-                <p class="text-sm text-gray-600">Calling someone a 'drama queen' in a dismissive way is a toxic put-down that minimizes their feelings or concerns. It's a gendered insult that is often used to criticize women's emotional expressions as overblown or attention-seeking.</p>
+                <p class="text-sm text-gray-600">Calling someone a 'drama queen' in a dismissive way is a toxic put-down
+                  that minimizes their feelings or concerns. It's a gendered insult that is often used to criticize
+                  women's emotional expressions as overblown or attention-seeking.</p>
               </div>
             </div>
             <div class="rounded-lg border bg-card text-card-foreground shadow-sm w-full" data-v0-t="card">
@@ -97,7 +103,9 @@
                   Positive
                 </div>
                 <p>{{ messages[4] }}</p>
-                <p class="text-sm text-gray-600">The comment is providing constructive feedback in an encouraging way. It acknowledges the person's effort, while gently suggesting they try to think of a more original idea. The tone is positive and supportive.</p>
+                <p class="text-sm text-gray-600">The comment is providing constructive feedback in an encouraging way.
+                  It acknowledges the person's effort, while gently suggesting they try to think of a more original
+                  idea. The tone is positive and supportive.</p>
               </div>
             </div>
           </div>
@@ -198,27 +206,24 @@ export default {
     async function addMessage() {
       console.log("added message")
       this.addedMessages.push(`You: ${inputContent.value}`);
-      inputContent.value = ''
+
+      let api_url = "https://mod-guard-snowy.vercel.app/"
 
 
+      console.log("DOing api call")
+      axios.get(`${api_url}/single_message/${inputContent.value}`)
+        .then(response => {
+          let res = response.data;
+          console.log(respone.data)
+          description.value = res.description
+          state_of_mind.value = res.stateofmind
+          inputContent.value = ''
 
-
-
-      // let api_url = "https://healthomatic-psi.vercel.app"
-      // console.log("API URL:", api_url)
-      // api_url = 'http://127.0.0.1:8000'
-
-      // axios.get(`${api_url}/patients/${priority}`)
-      //   .then(response => {
-      //     if (priority === 'Emergency') {
-      //       emergency_patients.value = response.data;
-      //     }
-      //   })
-      //   .catch(error => {
-      //     console.error('Error fetching patients:', error);
-      //   });
+        })
+        .catch(error => {
+          console.error('Error fetching patients:', error);
+        });
     };
-
     async function moderateForum() {
 
 
