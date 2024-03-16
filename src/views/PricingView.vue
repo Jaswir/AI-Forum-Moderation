@@ -2,7 +2,7 @@
     <div class="bg-white p-8">
         <h2 class="text-3xl font-bold text-center mb-8">Mod GuardAIn Pricing Plans</h2>
         <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-            <div class="rounded-lg border bg-card text-card-foreground shadow-sm w-full md:w-[300px]" data-v0-t="card">
+            <div class="rounded-lg border bg-blue-200 bg-card text-card-foreground shadow-sm w-full md:w-[300px]" data-v0-t="card">
                 <div class="flex flex-col space-y-1.5 p-6">
                     <h3 class="text-2xl font-semibold">Basic</h3>
                     <p class="text-sm text-muted-foreground">Community-supported</p>
@@ -23,7 +23,7 @@
                 </div>
             </div>
 
-            <div class="rounded-lg border bg-[#F8F1F1] text-card-foreground shadow-sm w-full md:w-[300px]"
+            <div class="rounded-lg  border bg-[#F8F1F1] text-card-foreground shadow-sm w-full md:w-[300px]"
                 data-v0-t="card">
                 <div class="flex flex-col space-y-1.5 p-6">
                     <h3 class="text-2xl font-semibold">Professional</h3>
@@ -48,7 +48,7 @@
                 </div>
             </div>
 
-            <div class="rounded-lg border bg-card text-card-foreground shadow-sm w-full md:w-[300px]" data-v0-t="card">
+            <div class="rounded-lg bg-blue-200 border bg-card text-card-foreground shadow-sm w-full md:w-[300px]" data-v0-t="card">
                 <div class="flex flex-col space-y-1.5 p-6">
                     <h3 class="text-2xl font-semibold">Enterprise</h3>
                     <p class="text-sm text-muted-foreground">Custom pricing</p>
