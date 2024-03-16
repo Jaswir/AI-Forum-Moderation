@@ -13,7 +13,11 @@
         <router-link to="/contact" class="text-white block hover:text-gray-200">
           Contact</router-link>
 
+
       </div>
+
+      <router-link to="/demo" class="text-white block hover:text-gray-200 pr-8">
+        Demo</router-link>
     </div>
   </nav>
 
