@@ -7,17 +7,25 @@
       <h2 class="text-center text-2xl font-semibold mb-4 p-4">Forum Messages</h2>
 
       <div v-if="moderate_view === false">
-        <div class="p-4">
+        <div class="space-y-4">
           <div class="message-card" v-for="(message, index) in messages" :key="index">
 
             <div class="border rounded-lg shadow-md p-4 pl-8">
               {{ message }}
             </div>
           </div>
+
+          <div class="message-card" v-for="(message, index) in addedMessages" :key="index">
+
+            <div class="border rounded-lg shadow-md p-4 pl-8">
+              {{ message }}
+            </div>
+
+          </div>
         </div>
 
 
-        <div class="mb-2">
+        <div class="mb-2 pt-4">
           <textarea class="p-2 form-textarea mt-1 block w-full rounded-md border-[#A3816A] border " rows="4"
             placeholder="Enter your comment here." v-model="inputContent"></textarea>
         </div>
@@ -86,11 +94,20 @@
             </div>
 
 
-            <div class="message-card " v-for="(message, index) in messages" :key="index">
+            <div class="rounded-lg border bg-card text-card-foreground shadow-sm w-full" data-v0-t="card"
+              v-for="(message, index) in addedMessages" :key="index">
+              <div class="p-3">
 
-              <div class="border rounded-lg shadow-md p-4 pl-8">
-                {{ message }}
+                <div
+                  class="text-white inline-flex items-center rounded-full whitespace-nowrap border px-2.5 py-0.5 w-fit text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent text-secondary-foreground hover:bg-secondary/80 mb-2 bg-[#ef4444]">
+                  {{ state_of_mind }}
+                </div>
+                <p>{{ message }}</p>
+                <p class="text-sm text-gray-600">{{ description }}</p>
+
               </div>
+
+
             </div>
           </div>
         </main>
@@ -141,12 +158,19 @@ export default {
       "User1: How are you going to deal with the investors? Some of the people on this forum ...",
       "Alice: It's okay, but there are already exists something like this"
     ])
+
+    const addedMessages = ref([])
+
+    const state_of_mind = ref('toxic')
+    const description = ref('this is not good! ')
+
     const inputContent = ref('')
     const moderate_view = ref(false)
 
     async function addMessage() {
       console.log("added message")
-      this.messages.push(`You: ${inputContent.value}`);
+      this.addedMessages.push(`You: ${inputContent.value}`);
+      inputContent.value = ''
 
 
 
@@ -176,6 +200,8 @@ export default {
     return {
       emergency_patients, messages, inputContent, moderate_view,
       moderateForum,
+      addedMessages,
+      state_of_mind, description,
       addMessage,
     }
   }
