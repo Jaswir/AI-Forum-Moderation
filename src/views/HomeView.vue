@@ -7,9 +7,9 @@
           <div class="space-y-6">
             <div class="space-y-3">
               <h1 class="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
-                Protect Your Community with AIGuard
+                Protect Your Community with Mod GuardAIn
               </h1>
-              <p class="text-gray-600 dark:text-gray-400">
+              <p class="text-xl text-gray-600 dark:text-gray-400">
                 Advanced AI moderation for forums and communities. Keep the
                 conversation positive and safe.
               </p>
@@ -49,7 +49,7 @@
           </div>
           <div class="p-6 pt-4">
             <p class="text-gray-500 dark:text-gray-400">
-              AIGuard can automatically respond to forum posts, providing
+              GuardAIn can automatically respond to forum posts, providing
               instant feedback and support to your community members.
             </p>
           </div>
@@ -72,7 +72,7 @@
           </div>
           <div class="p-6 pt-4">
             <p class="text-gray-500 dark:text-gray-400">
-              AIGuard can automatically detect and remove inappropriate or
+              Mod GuardAIn can automatically detect and remove inappropriate or
               offensive comments, helping you maintain a safe and welcoming
               environment for your community.
             </p>
@@ -82,10 +82,10 @@
       <div class="grid gap-6 lg:gap-12 max-w-3xl mx-auto">
         <div class="flex flex-col items-center space-y-2">
           <h2 class="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
-            How AIGuard Works
+            How Mod GuardAIn Works
           </h2>
           <p class="max-w-[700px] text-center text-gray-500 dark:text-gray-400">
-            AIGuard uses advanced machine learning models to analyze and
+            Mod GuardAIn uses advanced machine learning models to analyze and
             moderate forum comments, providing automated tools to help you
             manage your community.
           </p>
@@ -95,7 +95,7 @@
             <div class="space-y-2 text-center">
               <h3 class="text-2xl font-bold">Sentiment Analysis</h3>
               <p class="text-gray-500 dark:text-gray-400">
-                AIGuard can detect the sentiment of comments, identifying
+                Mod GuardAIn can detect the sentiment of comments, identifying
                 positive, negative, and neutral tones.
               </p>
             </div><img src="" width="800" height="400" alt="Sentiment Analysis"
@@ -105,7 +105,7 @@
             <div class="space-y-2 text-center">
               <h3 class="text-2xl font-bold">Comment Moderation</h3>
               <p class="text-gray-500 dark:text-gray-400">
-                AIGuard can automatically moderate comments, flagging or
+                Mod GuardAIn can automatically moderate comments, flagging or
                 removing inappropriate content.
               </p>
             </div><img src="" width="800" height="400" alt="Comment Moderation"
@@ -114,16 +114,16 @@
         </div>
       </div>
     </div>
-  </div>;
+  </div>
 
   <div>
     <div class="py-12 lg:py-24">
       <div class="container flex flex-col items-center justify-center px-4 space-y-6 lg:px-8 lg:flex-row lg:space-y-0">
         <div class="space-y-3 text-center lg:text-left">
-          <h2 class="text-4xl font-bold tracking-tight">Get Started with AIGuard</h2>
+          <h2 class="text-4xl font-bold tracking-tight">Get Started with Mod GuardAIn</h2>
           <p class="max-w-md text-gray-500 dark:text-gray-400">
             Sign up to get notified when we launch and receive early access to
-            the AIGuard platform.
+            the Mod GuardAIn platform.
           </p>
         </div>
 
@@ -136,19 +136,14 @@
             class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full sm:w-auto"
             type="submit">
             Get Started
-
           </button>
           <p class="text-xs text-gray-500 dark:text-gray-400">
             Sign up to get notified when we launch. 🚀
           </p>
         </form>
-
-
       </div>
     </div>
-
   </div>
-
 
 </template>
 

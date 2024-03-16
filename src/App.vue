@@ -2,7 +2,7 @@
   <nav class="bg-[#A3816A] p-4 text-white">
     <div class="container mx-auto flex items-center justify-between">
       <div class="flex items-center space-x-4">
-        <router-link to="/" class="text-xl font-bold">AI Mod Guardian</router-link>
+        <router-link to="/" class="text-xl font-bold">Mod GuardAIn</router-link>
       </div>
       <div class="flex items-center justify-center flex-1 space-x-4">
         <router-link to="/" class="text-white block hover:text-gray-200">Home</router-link>
