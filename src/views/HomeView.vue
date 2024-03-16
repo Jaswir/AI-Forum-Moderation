@@ -45,8 +45,9 @@
             <div class="rounded-lg border bg-card text-card-foreground shadow-sm w-full" data-v0-t="card">
               <div class="p-3">
                 <div
-                  class="inline-flex items-center rounded-full whitespace-nowrap border px-2.5 py-0.5 w-fit text-xs font-semibold transition-colors border-transparent bg-[#e53e3e] text-secondary-foreground hover:bg-secondary/80 mb-2 text-white">
-                  Toxic
+                  class="inline-flex items-center rounded-full whitespace-nowrap border px-2.5 py-0.5 w-fit text-xs font-semibold transition-colors border-transparent text-secondary-foreground hover:bg-secondary/80 mb-2 text-white"
+                  :style="{backgroundcolor: label_map[3]}">
+                  Positive
                 </div>
                 <p>User1: Wow that's an amazing idea!</p> <!-- Hardcoded message -->
                 <p class="text-sm text-gray-600">Contains harsh language not suitable for the forum.</p>
@@ -56,7 +57,7 @@
               <div class="p-3">
                 <div
                   class="inline-flex items-center rounded-full whitespace-nowrap border px-2.5 py-0.5 w-fit text-xs font-semibold transition-colors border-transparent bg-[#e53e3e] text-secondary-foreground hover:bg-secondary/80 mb-2 text-white">
-                  Toxic
+                  Sexist
                 </div>
                 <p>Bob: Go back to the kitchen and make me a sandwich</p> <!-- Hardcoded message -->
                 <p class="text-sm text-gray-600">Contains harsh language not suitable for the forum.</p>
@@ -76,7 +77,7 @@
               <div class="p-3">
                 <div
                   class="text-white inline-flex items-center rounded-full whitespace-nowrap border px-2.5 py-0.5 w-fit text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent text-secondary-foreground hover:bg-secondary/80 mb-2 bg-[#ef4444]">
-                  Sexist
+                  Positive
                 </div>
                 <p>How are you?</p>
                 <p class="text-sm text-gray-600">Includes content that discriminates based on gender.</p>
@@ -86,7 +87,7 @@
               <div class="p-3">
                 <div
                   class="text-white inline-flex items-center rounded-full whitespace-nowrap border px-2.5 py-0.5 w-fit text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent text-secondary-foreground hover:bg-secondary/80 mb-2 bg-[#dd6b20]">
-                  Racist
+                  Positive
                 </div>
                 <p>Welcome to our chat application.</p>
                 <p class="text-sm text-gray-600">Contains discriminatory remarks based on race.</p>
