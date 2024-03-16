@@ -8,13 +8,13 @@
         <!-- First Row -->
         <div class="flex flex-wrap -m-4 mb-8">
             <div class="w-full md:w-1/2 p-4">
-                <div class="w-full p-6 border rounded-lg shadow-lg">
+                <div class="w-full p-6 border rounded-lg shadow-lg bg-red-400">
                     <h2 class="text-2xl font-semibold mb-2">Jaswir Raghoe</h2>
                     <p class="text-lg">Tech Lead, Front end and AI Developer</p>
                 </div>
             </div>
             <div class="w-full md:w-1/2 p-4">
-                <div class="w-full p-6 border rounded-lg shadow-lg">
+                <div class="w-full p-6 border rounded-lg shadow-lg bg-blue-400">
                     <h2 class="text-2xl font-semibold mb-2">Muhammed Bilal</h2>
                     <p class="text-lg">Backend Developer</p>
                 </div>
@@ -24,13 +24,13 @@
         <!-- Second Row -->
         <div class="flex flex-wrap -m-4 mb-8">
             <div class="w-full md:w-1/2 p-4">
-                <div class="w-full p-6 border rounded-lg shadow-lg">
+                <div class="w-full p-6 border rounded-lg shadow-lg bg-green-400">
                     <h2 class="text-2xl font-semibold mb-2">Brendan York</h2>
                     <p class="text-lg">Business / Market Research</p>
                 </div>
             </div>
             <div class="w-full md:w-1/2 p-4">
-                <div class="w-full p-6 border rounded-lg shadow-lg">
+                <div class="w-full p-6 border rounded-lg shadow-lg bg-pink-400">
                     <h2 class="text-2xl font-semibold mb-2">Mehboob Ahmad</h2>
                     <p class="text-lg">Backend Developer</p>
                 </div>
@@ -40,13 +40,13 @@
         <!-- Third Row -->
         <div class="flex flex-wrap -m-4">
             <div class="w-full md:w-1/2 p-4">
-                <div class="w-full p-6 border rounded-lg shadow-lg">
+                <div class="w-full p-6 border rounded-lg shadow-lg bg-purple-400">
                     <h2 class="text-2xl font-semibold mb-2">Gul Hassan</h2>
                     <p class="text-lg">UI Designer</p>
                 </div>
             </div>
             <div class="w-full md:w-1/2 p-4">
-                <div class="w-full p-6 border rounded-lg shadow-lg">
+                <div class="w-full p-6 border rounded-lg shadow-lg bg-cyan-400">
                     <h2 class="text-2xl font-semibold mb-2">Tabinda Noor</h2>
                     <p class="text-lg">Frontend Developer</p>
                 </div>
