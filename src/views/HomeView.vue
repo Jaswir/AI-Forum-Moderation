@@ -1,166 +1,153 @@
 <template>
 
-  <div class="grid grid-cols-3 gap-4">
-    <div class="col-span-2 pl-8">
-
-
-      <h2 class="text-center text-2xl font-semibold mb-4 p-4">Forum Messages</h2>
-
-      <div v-if="view === 'start'">
-        <div class="space-y-4">
-          <div class="message-card" v-for="(message, index) in messages" :key="index">
-
-            <div class="border rounded-lg shadow-md p-4 pl-8">
-              {{ message }}
-            </div>
-          </div>
-
-          <div class="message-card" v-for="(message, index) in addedMessages" :key="index">
-
-            <div class="border rounded-lg shadow-md p-4 pl-8">
-              {{ message }}
+  <div class="bg-gray-50 dark:border-gray-950 py-12">
+    <div class="container px-4 lg:px-8">
+      <header class="text-center">
+        <div class="max-w-3xl mx-auto">
+          <div class="space-y-6">
+            <div class="space-y-3">
+              <h1 class="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
+                Protect Your Community with AIGuard
+              </h1>
+              <p class="text-gray-600 dark:text-gray-400">
+                Advanced AI moderation for forums and communities. Keep the
+                conversation positive and safe.
+              </p>
             </div>
 
+            <div><img src="/public/hero_image.png" width="800" height="400" alt="Sentiment Analysis"
+                class="aspect-[2.5] overflow-hidden rounded-lg object-cover w-3/2 mx-auto">
+            </div>
+            <div
+              style="margin-left:48%; margin-top: 15px; background-color: black; width: 80px; height: 32px; border-radius:6px; display: flex; justify-content: center; align-items: center; ">
+              <router-link to="/demo"
+                class=" bg-secondary text-white rounded-md transition-colors hover:bg-primary/90 h-10 px-4 py-2 w-full sm:w-auto">Demo</router-link>
+            </div>
+            <div class="space-y-2">
+              <form class="flex flex-col items-center space-y-2 sm:flex-row sm:justify-center sm:space-y-0"><input
+                  type="email"
+                  class="flex h-10 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 max-w-md w-full sm:w-auto"
+                  placeholder="Enter your email" required=""><button
+                  class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full sm:w-auto"
+                  type="submit">
+                  Get Started
+                </button></form>
+
+              <p class="text-xs text-gray-500 dark:text-gray-400">
+                Sign up to get notified when we launch. 🚀
+              </p>
+            </div>
           </div>
         </div>
+      </header>
 
 
-        <div class="mb-2 pt-4">
-          <textarea class="p-2 form-textarea mt-1 block w-full rounded-md border-[#A3816A] border " rows="4"
-            placeholder="Enter your comment here." v-model="inputContent"></textarea>
+      <div class="grid gap-6 lg:gap-12 max-w-3xl mx-auto my-12 lg:my-24">
+        <div class="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
+          <div class="flex flex-col space-y-1.5 p-6 pb-6">
+            <h3 class="text-2xl font-bold">Auto-Reply to Forum Posts</h3>
+          </div>
+          <div class="p-6 pt-4">
+            <p class="text-gray-500 dark:text-gray-400">
+              AIGuard can automatically respond to forum posts, providing
+              instant feedback and support to your community members.
+            </p>
+          </div>
         </div>
-        <div class="text-right">
-          <button
-            class="mt-4 bg-[#0A065D] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            @click="addMessage">
-            Submit Comment
+        <div class="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
+          <div class="flex flex-col space-y-1.5 p-6 pb-6">
+            <h3 class="text-2xl font-bold">Detect Comment Quality</h3>
+          </div>
+          <div class="p-6 pt-4">
+            <p class="text-gray-500 dark:text-gray-400">
+              Our AI analyzes comments, identifying positive, negative, and
+              neutral sentiments to help you understand the tone of your
+              community's conversations.
+            </p>
+          </div>
+        </div>
+        <div class="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
+          <div class="flex flex-col space-y-1.5 p-6 pb-6">
+            <h3 class="text-2xl font-bold">Remove Bad Comments</h3>
+          </div>
+          <div class="p-6 pt-4">
+            <p class="text-gray-500 dark:text-gray-400">
+              AIGuard can automatically detect and remove inappropriate or
+              offensive comments, helping you maintain a safe and welcoming
+              environment for your community.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="grid gap-6 lg:gap-12 max-w-3xl mx-auto">
+        <div class="flex flex-col items-center space-y-2">
+          <h2 class="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
+            How AIGuard Works
+          </h2>
+          <p class="max-w-[700px] text-center text-gray-500 dark:text-gray-400">
+            AIGuard uses advanced machine learning models to analyze and
+            moderate forum comments, providing automated tools to help you
+            manage your community.
+          </p>
+        </div>
+        <div class="grid gap-6 md:gap-12 lg:gap-24">
+          <div class="flex flex-col items-center space-y-2">
+            <div class="space-y-2 text-center">
+              <h3 class="text-2xl font-bold">Sentiment Analysis</h3>
+              <p class="text-gray-500 dark:text-gray-400">
+                AIGuard can detect the sentiment of comments, identifying
+                positive, negative, and neutral tones.
+              </p>
+            </div><img src="" width="800" height="400" alt="Sentiment Analysis"
+              class="aspect-[2.5] overflow-hidden rounded-lg object-cover">
+          </div>
+          <div class="flex flex-col items-center space-y-2">
+            <div class="space-y-2 text-center">
+              <h3 class="text-2xl font-bold">Comment Moderation</h3>
+              <p class="text-gray-500 dark:text-gray-400">
+                AIGuard can automatically moderate comments, flagging or
+                removing inappropriate content.
+              </p>
+            </div><img src="" width="800" height="400" alt="Comment Moderation"
+              class="aspect-[2.5] overflow-hidden rounded-lg object-cover">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>;
+
+  <div>
+    <div class="py-12 lg:py-24">
+      <div class="container flex flex-col items-center justify-center px-4 space-y-6 lg:px-8 lg:flex-row lg:space-y-0">
+        <div class="space-y-3 text-center lg:text-left">
+          <h2 class="text-4xl font-bold tracking-tight">Get Started with AIGuard</h2>
+          <p class="max-w-md text-gray-500 dark:text-gray-400">
+            Sign up to get notified when we launch and receive early access to
+            the AIGuard platform.
+          </p>
+        </div>
+
+      </div>
+      <div class="space-y-2 p-4">
+        <form class="flex flex-col items-center space-y-2 sm:flex-row sm:justify-center sm:space-y-0"><input
+            type="email"
+            class="flex h-10 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 max-w-md w-full sm:w-auto"
+            placeholder="Enter your email" required=""><button
+            class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full sm:w-auto"
+            type="submit">
+            Get Started
+
           </button>
-        </div>
+          <p class="text-xs text-gray-500 dark:text-gray-400">
+            Sign up to get notified when we launch. 🚀
+          </p>
+        </form>
+
 
       </div>
-
-      <div class="bg-white" v-if="view == 'moderate'">
-        <main class="container mx-auto p-4">
-          <div class="space-y-4">
-            <div class="rounded-lg border bg-card text-card-foreground shadow-sm w-full" data-v0-t="card">
-              <div class="p-3">
-                <div
-                  class="inline-flex items-center rounded-full whitespace-nowrap border px-2.5 py-0.5 w-fit text-xs font-semibold transition-colors border-transparent text-secondary-foreground hover:bg-secondary/80 mb-2 text-white"
-                  :style="{ backgroundColor: label_map['Positive'] }">
-                  Positive
-                </div>
-                <p>{{ messages[0] }}</p>
-                <p class="text-sm text-gray-600">The comment is encouraging and supportive, telling the person not to be
-                  disheartened because they have more knowledge and expertise compared to others their age. It is a
-                  positive and uplifting message.
-                </p>
-              </div>
-            </div>
-            <div class="rounded-lg border bg-card text-card-foreground shadow-sm w-full" data-v0-t="card">
-              <div class="p-3">
-                <div
-                  class="inline-flex items-center rounded-full whitespace-nowrap border px-2.5 py-0.5 w-fit text-xs font-semibold transition-colors border-transparent bg-[#e53e3e] text-secondary-foreground hover:bg-secondary/80 mb-2 text-white"
-                  :style="{ backgroundColor: label_map['Sexist'] }">
-                  Sexist
-                </div>
-                <p>{{ messages[1] }}</p>
-                <p class="text-sm text-gray-600">The manager is discriminating against the employee based on her
-                  pregnancy status and gender. Preventing a pregnant woman from being seen by clients is a form of
-                  pregnancy discrimination and reflects a sexist attitude that pregnant women should be hidden away.</p>
-              </div>
-            </div>
-            <div class="rounded-lg border bg-card text-card-foreground shadow-sm w-full" data-v0-t="card">
-              <div class="p-3">
-                <div
-                  class="inline-flex items-center rounded-full whitespace-nowrap border px-2.5 py-0.5 w-fit text-xs font-semibold transition-colors border-transparent bg-[#e53e3e] text-secondary-foreground hover:bg-secondary/80 mb-2 text-white"
-                  :style="{ backgroundColor: label_map['Toxic'] }">
-                  Toxic
-                </div>
-                <p>{{ messages[2] }}</p>
-                <p class="text-sm text-gray-600">The comment uses insulting language to call the author a 'waste of
-                  space', which is a toxic and demeaning thing to say about someone. The tone is hostile and dismissive.
-                </p>
-              </div>
-            </div>
-            <div class="rounded-lg border bg-card text-card-foreground shadow-sm w-full" data-v0-t="card">
-              <div class="p-3">
-                <div
-                  class="text-white inline-flex items-center rounded-full whitespace-nowrap border px-2.5 py-0.5 w-fit text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent text-secondary-foreground hover:bg-secondary/80 mb-2 bg-[#ef4444]"
-                  :style="{ backgroundColor: label_map['Toxic'] }">
-                  Toxic
-                </div>
-                <p>{{ messages[3] }}</p>
-                <p class="text-sm text-gray-600">Calling someone a 'drama queen' in a dismissive way is a toxic put-down
-                  that minimizes their feelings or concerns. It's a gendered insult that is often used to criticize
-                  women's emotional expressions as overblown or attention-seeking.</p>
-              </div>
-            </div>
-            <div class="rounded-lg border bg-card text-card-foreground shadow-sm w-full" data-v0-t="card">
-              <div class="p-3">
-                <div
-                  class="text-white inline-flex items-center rounded-full whitespace-nowrap border px-2.5 py-0.5 w-fit text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent text-secondary-foreground hover:bg-secondary/80 mb-2 bg-[#dd6b20]"
-                  :style="{ backgroundColor: label_map['Positive'] }">
-                  Positive
-                </div>
-                <p>{{ messages[4] }}</p>
-                <p class="text-sm text-gray-600">The comment is providing constructive feedback in an encouraging way.
-                  It acknowledges the person's effort, while gently suggesting they try to think of a more original
-                  idea. The tone is positive and supportive.</p>
-              </div>
-            </div>
-
-            <div class="rounded-lg border bg-card text-card-foreground shadow-sm w-full" data-v0-t="card"
-              v-for="(message, index) in addedMessages" :key="index">
-              <div class="p-3">
-
-                <div
-                  class="text-white inline-flex items-center rounded-full whitespace-nowrap border px-2.5 py-0.5 w-fit text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent text-secondary-foreground hover:bg-secondary/80 mb-2"
-                  :style="{ backgroundColor: label_map[state_of_mind] }">
-                  {{ state_of_mind }}
-                </div>
-                <p>{{ message }}</p>
-                <p class="text-sm text-gray-600">{{ description }}</p>
-
-              </div>
-            </div>
-          </div>
-        </main>
-      </div>
-
-      <div v-if="view === 'result'">
-        <div class="space-y-4">
-          <div class="message-card" v-for="(message, index) in result_messages" :key="index">
-
-            <div class="border rounded-lg shadow-md p-4 pl-8">
-              {{ message }}
-            </div>
-          </div>
-
-        </div>
-      </div>
-
     </div>
-
-
-
-
-
-
-    <div class="col-span-1  flex justify-center  items-center">
-      <button
-        class="mt-4 bg-[#0A065D] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-        @click="moderateForum">
-        {{ view === 'start' ? 'Moderate Forum' : (view === 'moderate' ? 'Get Results' : 'Try Again') }}
-
-      </button>
-    </div>
-
-
-
-
 
   </div>
-
 
 
 </template>
@@ -213,30 +200,19 @@ export default {
 
     async function addMessage() {
       console.log("added message")
-      let input = inputContent.value
-      inputContent.value = ''
-      this.addedMessages.push(`You: ${input}`);
+      this.addedMessages.push(`You: ${inputContent.value}`);
 
-      let api_url = "https://mod-guard-ai-backend.vercel.app"
+      let api_url = "https://mod-guard-snowy.vercel.app/"
 
 
       console.log("DOing api call")
-      await axios.get(`${api_url}/single_message/${input}`)
+      axios.get(`${api_url}/single_message/${inputContent.value}`)
         .then(response => {
           let res = response.data;
-          console.log(response.data)
+          console.log(respone.data)
           description.value = res.description
           state_of_mind.value = res.stateofmind
-
-          if (res.stateofmind === 'Positive') {
-            console.log("Added to results, cause", res.stateofmind)
-            this.result_messages.push(`You: ${input}`)
-          }
-          else{
-            this.result_messages.push(`comment has been deleted by moderator`)
-          }
-
-
+          inputContent.value = ''
 
         })
         .catch(error => {
@@ -250,6 +226,15 @@ export default {
         console.log("Shows labels and descriptions")
 
         this.view = 'moderate'
+
+        let data = {
+          comment: "I hate jews",
+          stateofmind: "Racist",
+          description: "This comment expresses hatred towards Jewish people, which is an antisemitic view. Hating an entire group based on their religion or ethnicity is discriminatory and hateful."
+        }
+
+        this.state_of_mind = data.stateofmind
+        this.description = data.description
 
       }
 
@@ -284,4 +269,4 @@ export default {
   font-size: 16px;
 
 }
-</style>./LandingPageView.vue
+</style>./HomeView.vue
