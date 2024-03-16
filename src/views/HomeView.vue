@@ -7,7 +7,27 @@
       </div>
     </div>
   </div>
+
+  <div class="w-3/6 mx-auto">
+    <div class="mb-2">
+      <textarea
+        class="p-2 form-textarea mt-1 block w-full rounded-md border-[#A3816A] border "
+        rows="4" placeholder="Enter your comment here."></textarea>
+    </div>
+    <div class="text-right">
+      <button
+        class="mt-4 bg-[#0A065D] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        type="button">
+        Submit Comment
+      </button>
+    </div>
+  </div>
+
+
+
 </template>
+
+
 
 
 <script lang="js">
@@ -21,13 +41,14 @@ export default {
 
     const emergency_patients = ref([]);
     const messages = ref([
-      "Hello!",
-      "How are you?",
-      "Welcome to our chat application.",
-      "Feel free to ask any questions."
+      "User1: Wow that's an amazing idea!",
+      "Bob: Go back to the kitchen and make me a sandwich",
+      "Carl: Go kill yourself ",
+      "User1: How are you going to deal with the investors? Some of the people on this forum ...",
+      "Alice: It's okay, but there are already exists something like this"
     ])
 
-    async function fetchPatientsByPriority(priority) {
+    async function addMessage(priority) {
       let api_url = "https://healthomatic-psi.vercel.app"
       console.log("API URL:", api_url)
       api_url = 'http://127.0.0.1:8000'

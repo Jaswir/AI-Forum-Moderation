@@ -1,10 +1,10 @@
 <template>
-  <nav className="bg-[#A3816A] p-4 text-white">
-    <div className="container mx-auto flex items-center justify-between">
-      <div className="flex items-center space-x-4">
+  <nav class="bg-[#A3816A] p-4 text-white">
+    <div class="container mx-auto flex items-center justify-between">
+      <div class="flex items-center space-x-4">
         <router-link to="/" class="text-xl font-bold">AI Mod Guardian</router-link>
       </div>
-      <div className="flex items-center justify-center flex-1 space-x-4">
+      <div class="flex items-center justify-center flex-1 space-x-4">
         <router-link to="/" class="text-white block hover:text-gray-200">Home</router-link>
         <router-link to="/pricing" class="text-white block hover:text-gray-200">
           Pricing</router-link>
